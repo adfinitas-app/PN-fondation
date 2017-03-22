@@ -1,14 +1,4 @@
 
-$(function() {
-  $(".max-length").keyup(function () {
-    if (this.value.length == this.maxLength) {
-      $(this).next('.max-length').focus();
-    }
-    else if (this.value.length > this.maxLength) {
-      $(this).val($(this).val().substr(0, $(this).val().length - 1));
-    }
-  });
-});
 
 $(document).ready( function() {
   if (  ($('#section-form').height() + $('header').height()) <  $(window).height() )
@@ -176,17 +166,6 @@ function getCivilityLong() {
     return 'MONSIEUR';
   }
 }
-function getBirthday() {
-  var bday = "";
-  $('.max-length').each( function() {
-    if ($(this).length == 0)
-      return "";
-    else {
-      bday += $(this).val() + ' ';
-    }
-  });
-  return pureField(bday.slice(0,-1));
-}
 
 
 function submitForm(mode) {
@@ -205,14 +184,13 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-        "birthdate": getBirthday(),
-        "language": "fr_FR"
+        "language": pureField($("input[name='language']:checked").val())
       }
     },
     "woopra" : {
-      "host": "miedepain.asso.fr",
+      "host": "perce-neige.org",
       "cookie": getCookie("wooTracker"),
-      "event": "TODO",
+      "event": "inscription",
       "cv_email": pureField($("input[name='email']").val()),
       "cv_sexe": getSexe(),
       "cv_civility": pureField($("input[name='civility']:checked").val()),
@@ -225,10 +203,7 @@ function submitForm(mode) {
       "ce_firstname": pureField($("input[name='firstname']").val()),
       "ce_lastname": pureField($("input[name='lastname']").val()),
       "ce_name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-
-      "ce_birthdate": getBirthday(),
-
-      "ce_language": "fr_FR"
+      "ce_language": pureField($("input[name='language']:checked").val())
     },
     "mailjet": {
       "Email": pureField($("input[name='email']").val()),
@@ -242,7 +217,7 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-        "language": "fr_FR"
+        "language": pureField($("input[name='language']:checked").val())
       },
       "addLists": [],
       "delLists": []
