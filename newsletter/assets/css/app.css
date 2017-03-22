@@ -87,8 +87,7 @@ form div,
 form div p {
 	display: inline-block;
 }
-.radio p,
-.birthdate p {
+.radio p {
 	padding-left: 3px;
 	margin-right: 15px;
 	margin: 0;
@@ -160,18 +159,6 @@ input[type=radio]:checked + label:before {
 }
 #f_tel {
 	display: inline-block;
-}
-.birthdate {
-
-}
-.birthdate input {
-	margin-left: 10px;
-	display: inline-block;
-	width: 46px;
-}
-.birthdate .max-length.big {
-	display: inline-block;
-	width: 59px;
 }
 .intl-tel-input {
 	margin-bottom: 10px;
