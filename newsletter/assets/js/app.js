@@ -167,7 +167,6 @@ function getCivilityLong() {
   }
 }
 
-
 function submitForm(mode) {
 
   var data = {
@@ -184,7 +183,7 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-        "language": pureField($("input[name='language']:checked").val())
+      "ce_language": pureField($("input[name='language']").val())
       }
     },
     "woopra" : {
@@ -203,7 +202,7 @@ function submitForm(mode) {
       "ce_firstname": pureField($("input[name='firstname']").val()),
       "ce_lastname": pureField($("input[name='lastname']").val()),
       "ce_name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-      "ce_language": pureField($("input[name='language']:checked").val())
+      "ce_language": pureField($("input[name='language']").val())
     },
     "mailjet": {
       "Email": pureField($("input[name='email']").val()),
@@ -217,7 +216,7 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-        "language": pureField($("input[name='language']:checked").val())
+      "ce_language": pureField($("input[name='language']").val())
       },
       "addLists": [],
       "delLists": []
