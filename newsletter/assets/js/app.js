@@ -223,7 +223,7 @@ function submitForm(mode) {
     },
     //"grecaptcha_response": grecaptcha.getResponse()
   }
-//makeCorsRequest(data);
+makeCorsRequest(data);
 }
 
 
