@@ -219,7 +219,7 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-      "ce_language": pureField($("input[name='language']").val())
+      "language": pureField($("input[name='language']").val())
       },
       "addLists": [],
       "delLists": []
