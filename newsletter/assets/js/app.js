@@ -20,8 +20,9 @@ function validateForm(mode) {
       check++;
       $(this).css('border','1px solid red');
     }
-    else
+    else {
       $(this).css('border','1px solid #cacaca');
+    }
   });
 
   if($("input[name='civility']").length && (!$("input[name='civility']:checked").val())) {
@@ -37,7 +38,9 @@ function validateForm(mode) {
     $('.g_error').show();
     return false;
   }
-
+  else 
+    $('.g_error').hide();
+    
   if (atpos < 1 || ( dotpos - atpos < 2 ) && index.html) 
   {
     $('.error_mail').show();
