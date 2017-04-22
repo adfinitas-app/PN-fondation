@@ -1,0 +1,26 @@
+@font-face {
+	font-family: 'Museo Sans';
+	src: url('../fonts/MuseoSans_500-webfont.woff2') format('woff2'),
+	url('../fonts/MuseoSans_500-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+.max-width {
+	max-width: 75rem;
+}
+
+@media screen and (max-width: 746px) {
+	.form-container h2 {
+		font-size: 24px;
+		text-align: center;
+	}
+}

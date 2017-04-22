@@ -20,8 +20,9 @@ function validateForm(mode) {
       check++;
       $(this).css('border','1px solid red');
     }
-    else
+    else {
       $(this).css('border','1px solid #cacaca');
+    }
   });
 
   if($("input[name='civility']").length && (!$("input[name='civility']:checked").val())) {
@@ -37,7 +38,9 @@ function validateForm(mode) {
     $('.g_error').show();
     return false;
   }
-
+  else 
+    $('.g_error').hide();
+    
   if (atpos < 1 || ( dotpos - atpos < 2 ) && index.html) 
   {
     $('.error_mail').show();
@@ -123,7 +126,7 @@ function createCORSRequest(method, url) {
   return xhr;
 }
 function makeCorsRequest(data) {
-  var url = '#';
+  var url = 'https://adfinitas-io.herokuapp.com/api/v1/organization/43546db9-67fb-42b8-bffa-dd5ef59ad2b6/webhook/2a906835-3a50-445f-9405-ca70d1a856ba';
   var body = JSON.stringify(data);
   var xhr = createCORSRequest('POST', url);
   if (!xhr) {
@@ -216,14 +219,14 @@ function submitForm(mode) {
         "firstname": pureField($("input[name='firstname']").val()),
         "lastname": pureField($("input[name='lastname']").val()),
         "name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
-      "ce_language": pureField($("input[name='language']").val())
+      "language": pureField($("input[name='language']").val())
       },
       "addLists": [],
       "delLists": []
     },
     //"grecaptcha_response": grecaptcha.getResponse()
   }
-//makeCorsRequest(data);
+makeCorsRequest(data);
 }
 
 
