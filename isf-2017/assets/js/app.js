@@ -28,6 +28,15 @@ $(document).ready( function() {
 	$('#bt-scroll-header').click( function() {
 		scrollTo($('.row.video'));
 	});
+	$('#link-header-1').click( function() {
+		scrollTo($('#link-1'));
+	});
+	$('#link-header-2').click( function() {
+		scrollTo($('#link-2'));
+	});
+	$('#link-header-3').click( function() {
+		scrollTo($('#link-3'));
+	});
 });
 $(window).resize( function() {
 
@@ -42,7 +51,7 @@ function    scrollTo(next){
 	if ($(next).length != 0)
 	{
 		$('html, body').stop().animate({
-			scrollTop: $(next).offset().top + 1
+			scrollTop: $(next).offset().top - 91
 		}, 700, 'swing');
 		return false;
 	}
