@@ -41,6 +41,7 @@ $(document).ready( function() {
 
 	$('#close').click( function() {
 	    inst.close();
+	     $(document).scrollTop( $("#link-1").offset().top );
 		
 	});
 });
