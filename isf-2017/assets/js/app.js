@@ -39,15 +39,6 @@ $(document).ready( function() {
 		scrollToDown($('#link-2'));
 	});
 
-	$('#close').click( function() {
-	   $('.remodal').fadeOut("slow", function() {
-		});
-		$('.remodal-overlay').fadeOut("slow", function() {
-		});
-		$('.remodal-wrapper').fadeOut("slow", function() {
-		});
-		
-	});
 });
 $(window).resize( function() {
 
