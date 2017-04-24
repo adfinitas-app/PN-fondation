@@ -138,6 +138,14 @@
 	background-color: #72a3cb;
 	padding: 15px;
 }
+.img-50 {
+	color: white;
+	font-family: 'Titillium Light';
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 1.2;
+	margin-top: 10px;
+}
 .deux.left div {
 	display: inline-block;
 	vertical-align: middle;
