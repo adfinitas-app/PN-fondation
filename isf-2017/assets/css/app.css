@@ -160,7 +160,7 @@
 }
 .deux.left div p {
 	color: white;
-	font-family: 'Titillium Light';
+	font-family: 'Museo Sans 100';
 	font-size: 14px;
 	font-weight: bold;
 	line-height: 1.2;
@@ -257,7 +257,7 @@
 	transform: scale(1.10);
 }
 .rond div p {
-	font-family: 'Museo Sans';
+	font-family: 'Museo Sans 100';
 	line-height: 1.2;
 	text-transform: uppercase;
 	color: #72a3cb;
@@ -268,7 +268,7 @@
 }
 .rond p {
 	padding-top: 15px;
-	font-family: 'Museo Sans';
+	font-family: 'Museo Sans 100';
 	line-height: 1.2;
 	color: #72a3cb;
 	font-size: 15px;
@@ -286,7 +286,7 @@
 	border-top: 2px solid #364451;
 }
 .text-don p {
-	font-family: 'Museo Sans';
+	font-family: 'Museo Sans 100';
 	line-height: 1;
 	text-transform: uppercase;
 	color: #364451;
