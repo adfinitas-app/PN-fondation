@@ -37,6 +37,12 @@ $(document).ready( function() {
 	$('#link-header-3').click( function() {
 		scrollToDown($('#link-2'));
 	});
+
+	$('#close').click( function() {
+		$('.remodal').fadeOut("slow", function() {
+
+		});
+	});
 });
 $(window).resize( function() {
 
