@@ -35,7 +35,7 @@ $(document).ready( function() {
 		scrollTo($('#link-2'));
 	});
 	$('#link-header-3').click( function() {
-		scrollTo($('#link-3'));
+		scrollToDown($('#link-2'));
 	});
 });
 $(window).resize( function() {
@@ -44,14 +44,22 @@ $(window).resize( function() {
 });
 
 
-
+function    scrollToDown(next){
+	if ($(next).length != 0)
+	{
+		$('html, body').stop().animate({
+			scrollTop: $(next).offset().top + 121
+		}, 700, 'swing');
+		return false;
+	}
+};
 
 
 function    scrollTo(next){
 	if ($(next).length != 0)
 	{
 		$('html, body').stop().animate({
-			scrollTop: $(next).offset().top - 91
+			scrollTop: $(next).offset().top - 90
 		}, 700, 'swing');
 		return false;
 	}
