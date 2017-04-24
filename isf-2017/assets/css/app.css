@@ -21,7 +21,7 @@
 }
 @font-face {
 	font-family: 'Titillium';
-	src: url('../fonts/titilliumweb-regular-webfont.woff2') format('woff2'),
+	src: url('../fonts/titilliumweb-regular-webfont.woff2') format('woff2'),cont
 	url('../fonts/titilliumweb-regular-webfont.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
@@ -96,20 +96,20 @@
 	min-height: 100vh;
 }
 .container-slide-un {
-	padding-top: 30%;
+	padding-top: 35%;
 	text-align: center;
 	vertical-align: bottom;
 }
 .container-slide-un p {
 	margin-top: 10px;
-	font-size: 18px;
+	font-size: 22px;
 	color: white;
 	font-family: 'Titillium Light';
 	margin-bottom: 0;
 	line-height: 1.2;
 }
 .container-slide-un p.deduc {
-	font-size: 14px;
+	font-size: 18px;
 }
 .container-slide-un h1 {
 	color: white;
@@ -226,7 +226,7 @@
 }
 .slide-quatre .container-text p.small {
 	color: #72a3cb;
-	font-size: 14px;
+	font-size: 18px;
 	margin-bottom: 40px;
 }
 .rond {
