@@ -2,6 +2,7 @@ $(document).foundation();
 
 
 $(document).ready( function() {
+    var inst = $('[data-remodal-id=fondation]').remodal();
 
 	$('.arrow.down').click( function() {
 		$(this).css('visibility','hidden');
@@ -38,11 +39,6 @@ $(document).ready( function() {
 		scrollToDown($('#link-2'));
 	});
 
-	$('#close').click( function() {
-		$('.remodal').fadeOut("slow", function() {
-
-		});
-	});
 });
 $(window).resize( function() {
 
