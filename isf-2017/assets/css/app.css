@@ -368,6 +368,10 @@
 .arrow.up {
 	transform: rotate(180deg);
 }
+.arrow.up:hover,
+.arrow.down:hover {
+    cursor: pointer;
+}
 footer {
 	padding: 10px;
 	padding-top: 40px;
