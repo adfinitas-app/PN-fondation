@@ -10,13 +10,13 @@
 	
 	
 	<!-- open graph -->
-	<meta property="og:locale" content="fr_FR" />
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:video" content="" />
+	<meta property="og:locale" content="fr_FR"/>
+	<meta property="og:title" content=""/>
+	<meta property="og:description" content=""/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:video" content=""/>
 	
 	
 	<!-- favicons -->
@@ -36,12 +36,57 @@
 	<link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="favicon/manifest.json">
 	<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
-	 
+	
 	
 	<!-- theme includes -->
 	<link href="theme/css/main.css" rel="stylesheet" type="text/css"/>
 	<script src="theme/js/libs.js"></script>
 	<script src="theme/js/exec.js"></script>
+	
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-11248569-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments)
+		}
+		gtag('js', new Date());
+		gtag('config', 'UA-11248569-1');
+	</script>
+	
+	<!-- Start of Woopra Code -->
+	<script>
+		function extractUrlParams(){
+			var t = document.location.search.substring(1).split('&'); var f = [];
+			for (var i=0; i<t.length; i++){
+				var x = t[ i ].split('=');
+				f[x[0]]=decodeURIComponent(x[1]);
+			}
+			return f;
+		};
+		
+		(function(){
+			var t,i,e,n=window,o=document,a=arguments,s="script",r=["config","track","identify","visit","push","call","trackForm","trackClick"],c=function(){var t,i=this;for(i._e=[],t=0;r.length>t;t++)(function(t){i[t]=function(){return i._e.push([t].concat(Array.prototype.slice.call(arguments,0))),i}})(r[t])};for(n._w=n._w||{},t=0;a.length>t;t++)n._w[a[t]]=n[a[t]]=n[a[t]]||new c;i=o.createElement(s),i.async=1,i.src="//static.woopra.com/js/w.js",e=o.getElementsByTagName(s)[0],e.parentNode.insertBefore(i,e)
+		})("woopra");
+		
+		woopra.config({
+			domain: "perce-neige.org"
+		});
+		
+		var p = extractUrlParams();
+		
+		if ('email' in p) {
+			if ('lastname' in p && 'firstname' in p) {
+				woopra.identify({
+					email: p['email'],
+					name: p['firstname'] + ' ' + p['lastname']
+				});
+			} else {woopra.identify({email: p['email']})}
+		}
+		woopra.track();
+	</script>
+	<!-- End of Woopra Code -->
+
 </head>
 <body>
 
@@ -119,28 +164,36 @@
 		
 		<div class="perce-neige-logo">
 			<a href="/" class="logo">
-				<img alt="Perce Neige" src="theme/mm/logo-perce-neige-header.png" class="hide-for-small-only" />
-				<img alt="Perce Neige" src="theme/mm/logo-perce-neige-header-small.png" class="show-for-small-only" />
+				<img alt="Perce Neige" src="theme/mm/logo-perce-neige-header.png" class="hide-for-small-only"/>
+				<img alt="Perce Neige" src="theme/mm/logo-perce-neige-header-small.png" class="show-for-small-only"/>
 			</a>
 		</div>
 		
 		<div class="social-links">
 			<h6>
-				Rejoignez<br />
+				Rejoignez<br/>
 				nous sur
 			</h6>
 			
 			<a href="https://www.facebook.com/associationperceneige/" target="_blank" class="icon-link">
-				<svg><use xlink:href="#facebook"/></svg>
+				<svg>
+					<use xlink:href="#facebook"/>
+				</svg>
 			</a>
 			<a href="https://twitter.com/perceneigeinfos" target="_blank" class="icon-link">
-				<svg><use xlink:href="#twitter"/></svg>
+				<svg>
+					<use xlink:href="#twitter"/>
+				</svg>
 			</a>
 			<a href="https://www.instagram.com/fondationperceneige/" target="_blank" class="icon-link">
-				<svg><use xlink:href="#instagram"/></svg>
+				<svg>
+					<use xlink:href="#instagram"/>
+				</svg>
 			</a>
 			<a href="https://www.youtube.com/user/ComitePerceNeige" target="_blank" class="icon-link">
-				<svg><use xlink:href="#youtube"/></svg>
+				<svg>
+					<use xlink:href="#youtube"/>
+				</svg>
 			</a>
 		</div>
 	</header>
@@ -640,7 +693,7 @@
 	<div class="page-wrapper">
 		<div class="aside">
 			<a href="http://www.donenconfiance.org/" target="_blank">
-				&nbsp;<img alt="Don en confiance" src="theme/mm/logo-don-en-confiance.png" />&nbsp;
+				&nbsp;<img alt="Don en confiance" src="theme/mm/logo-don-en-confiance.png"/>&nbsp;
 			</a>
 		</div>
 		
