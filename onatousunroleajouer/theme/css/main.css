@@ -2472,8 +2472,8 @@ ul.no-indent {
 	width: 0;
 	height: 0;
 	content: '';
-	-webkit-transition: width .4s ease-in-out, height .4s ease-in-out;
-	transition: width .4s ease-in-out, height .4s ease-in-out;
+	-webkit-transition: width .6s ease-in-out, height .6s ease-in-out;
+	transition: width .6s ease-in-out, height .6s ease-in-out;
 	-webkit-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
 	        transform: translate(-50%, -50%);
@@ -2486,8 +2486,8 @@ ul.no-indent {
 }
 
 .action-button:hover span {
-	width: 700px;
-	height: 700px;
+	width: 1200px;
+	height: 1200px;
 }
 
 @-webkit-keyframes heart-beat {
@@ -2899,6 +2899,37 @@ header .social-links a.icon-link {
 	margin: 0;
 }
 
+#page-headlines .track-link-fb-profile h6 {
+	font-family: 'museo_sans700', Arial, Sans-Serif;
+	font-size: 30px;
+	margin: 0 0 6px 0;
+	text-transform: none;
+}
+
+#page-headlines .track-link-fb-profile h6:before {
+	position: absolute;
+	top: 4px;
+	display: block;
+	width: 15px;
+	height: 30px;
+	content: '';
+	background: url('../mm/arrow-vertical.png') no-repeat;
+}
+
+#page-headlines .track-link-fb-profile svg {
+	width: 50px;
+	height: 50px;
+	margin-top: 4px;
+}
+
+@media screen and (max-width: 63.9375em) {
+	#page-headlines .track-link-fb-profile svg {
+		width: 24px;
+		height: 24px;
+		margin-left: 5px;
+	}
+}
+
 #page-headlines .share-block {
 	text-align: center;
 	color: white;
@@ -2921,18 +2952,6 @@ header .social-links a.icon-link {
 	height: 30px;
 	content: ' ';
 	background: url('../mm/arrow-vertical.png') no-repeat;
-}
-
-#page-headlines .share-block div.i-do-it h6 {
-	font-family: 'museo_sans700', Arial, Sans-Serif;
-	font-size: 30px;
-	text-transform: none;
-}
-
-#page-headlines .share-block div.i-do-it svg {
-	width: 50px;
-	height: 50px;
-	margin-top: 4px;
 }
 
 #page-headlines .share-block .icon-link {
@@ -3229,7 +3248,7 @@ header .social-links a.icon-link {
 }
 
 #headline-content1 .video-menu-small .menu-item.active {
-	background-color: #8fc8e5;
+	display: none !important;
 }
 
 #headline-content1 .video-aside {
@@ -3284,15 +3303,15 @@ header .social-links a.icon-link {
 	background: url('../mm/video-player-buttons.png') no-repeat;
 }
 
-#headline-content1 .video-call-button.active:before {
-	background-position-y: -84px;
-}
-
 #headline-content1 .video-call-button:hover:before {
 	-webkit-transform: translate(-50%, -50%) scale(.9);
 	    -ms-transform: translate(-50%, -50%) scale(.9);
 	        transform: translate(-50%, -50%) scale(.9);
 	opacity: .9;
+}
+
+#headline-content1 .video-call-button.active {
+	display: none !important;
 }
 
 #headline-content3:after {
