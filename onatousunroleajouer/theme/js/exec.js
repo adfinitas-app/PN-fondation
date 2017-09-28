@@ -13,13 +13,13 @@ hongi.settings = {
 			id: 'kwd-ga6g-HY'
 		},
 		teaserBS: {
-			id: 'e0eRSdQCs4k'
+			id: 'KQjHpq8HVy0'
 		},
 		teaserActeurs: {
 			id: 'GHyT1OjHjUA'
 		},
 		teaserParents: {
-			id: 'gQTUmraGC50'
+			id: 'v3TT-DZSnZk'
 		}
 	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
