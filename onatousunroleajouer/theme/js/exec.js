@@ -7,22 +7,18 @@ hongi.development = true;
 hongi.settings = {
 	splashScreenDuration: 4500,
 	splashScreenAllowSkip: false,
-	splashScreenForceSkip: true,
+	splashScreenForceSkip: false,
 	videosData: {
 		webdoc: {
-			title: 'Webdoc',
 			id: 'kwd-ga6g-HY'
 		},
 		teaserBS: {
-			title: 'Teaser #1',
 			id: 'e0eRSdQCs4k'
 		},
 		teaserActeurs: {
-			title: 'Teaser #2',
 			id: 'GHyT1OjHjUA'
 		},
 		teaserParents: {
-			title: 'Teaser #3',
 			id: 'gQTUmraGC50'
 		}
 	},
@@ -83,8 +79,6 @@ proto.registerInteractions = function(){
 			});
 		});
 	});
-	
-	
 	
 	
 	// ---   watch page breakpoint state changes
@@ -149,13 +143,12 @@ proto.registerInteractions = function(){
 		snetwork = $(this).attr('data-target');
 		url = 'https://www.youtube.com/watch?v=' + hongi.settings.videosData[videoId].id;
 		
-		console.log('share id: ' + videoId + ', url: ' + url);
-		
 		hongi.app.share({
 			snetwork: snetwork,
 			url: url
 		});
 	});
+	
 	
 	// --- init display
 	this.setHeadline();
