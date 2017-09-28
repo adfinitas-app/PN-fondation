@@ -85,6 +85,8 @@ proto.registerInteractions = function(){
 	});
 	
 	
+	
+	
 	// ---   watch page breakpoint state changes
 	$(window).on('changed.zf.mediaquery', function(){
 		hongi.app.setHeadlineTarget(Foundation.MediaQuery.atLeast('large'));
@@ -126,6 +128,7 @@ proto.registerInteractions = function(){
 			player.getPlayerState() == 1 ? player.pauseVideo() : player.playVideo();
 		}
 		else{
+			$('#' + targetId).attr('data-current-video-id', videoId);
 			player.loadVideoById(hongi.settings.videosData[videoId].id);
 		}
 		
@@ -139,6 +142,20 @@ proto.registerInteractions = function(){
 		});
 	});
 	
+	$(document).on('click', '.track-link-video-share', function(){
+		var videoId, snetwork, url;
+		
+		videoId = $('#headlines1-yt-player').attr('data-current-video-id');
+		snetwork = $(this).attr('data-target');
+		url = 'https://www.youtube.com/watch?v=' + hongi.settings.videosData[videoId].id;
+		
+		console.log('share id: ' + videoId + ', url: ' + url);
+		
+		hongi.app.share({
+			snetwork: snetwork,
+			url: url
+		});
+	});
 	
 	// --- init display
 	this.setHeadline();
@@ -405,17 +422,20 @@ proto.ytOnAPIReady = function(){
 	console.log('[Application.ytOnAPIReady]');
 	
 	$('.yt-video-player').each(function() {
-		var wrapper, player, playerId;
+		var wrapper, player, playerObj, playerId, videoId;
 		
 		wrapper = $(this);
+		videoId = wrapper.attr('data-yt-id');
 		
-		playerId = wrapper.closest('.yt-video-player').attr('id');
+		playerObj = wrapper.closest('.yt-video-player');
+		playerObj.attr('data-current-video-id', videoId);
+		playerId = playerObj.attr('id');
 		
 		player = new YT.Player(
 			wrapper.find('.yt-player-placeholder').attr('id'), {
 				height: '100%',
 				width: '100%',
-				videoId: wrapper.attr('data-yt-id'),
+				videoId: hongi.settings.videosData[videoId].id,
 				playerVars: {
 					'autoplay': 0,
 					'rel': 0,
