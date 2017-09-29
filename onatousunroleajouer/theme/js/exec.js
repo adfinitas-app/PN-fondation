@@ -16,7 +16,7 @@ hongi.settings = {
 			id: 'KQjHpq8HVy0'
 		},
 		teaserActeurs: {
-			id: 'GHyT1OjHjUA'
+			id: 'veZZXl0_5cQ'
 		},
 		teaserParents: {
 			id: 'v3TT-DZSnZk'
@@ -45,8 +45,6 @@ proto = hongi.Application.prototype;
 
 proto.registerInteractions = function(){
 	
-	// console.info('[Application.registerInteractions]');
-	
 	// --- initialize action buttons (track mouse position for rollover animation)
 	$(document).on('mouseenter mouseout click', '.action-button', function(e) {
 		var parentOffset = $(this).offset();
@@ -68,14 +66,10 @@ proto.registerInteractions = function(){
 		block.on('click', '.icon-link', function(){
 			var self = $(this);
 			
-			console.log(self.attr('data-target'));
-			
 			// snetwork, url, title, description, image
 			hongi.app.share({
 				snetwork: self.attr('data-target'),
-				url: 'http://www.kopfstoss.com/pn/',
-				image: 'http://www.kopfstoss.com/pn/theme/mm/campagne-perce-neige-2017-bruno-solo.jpg'
-				// url: 'http://www.kopfstoss.com/pn/theme/mm/campagne-perce-neige-2017-bruno-solo.jpg'
+				url: document.location
 			});
 		});
 	});
@@ -99,7 +93,7 @@ proto.registerInteractions = function(){
 	});
 	
 	
-	this.setLink('.track-link-fb-profile', 'https://www.facebook.com/profile/', true);
+	this.setLink('.track-link-fb-profile', 'https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041782935', true);
 	this.setLink('.track-link-donate', 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR', true);
 	
 	// ---   headlines menu
@@ -247,8 +241,6 @@ proto.setHeadlineTarget = function(isLargeStatus){
 	}
 	
 	this.headlinesLargeStatus = isLargeStatus;
-	console.log('setHeadlineTarget', 'set status to isLargeStatus: ' + isLargeStatus);
-	
 	if(isLargeStatus){
 		largeContainer = $('#headlines-pages-large-container');
 		$('#headline-content1').remove().appendTo(largeContainer);
@@ -370,10 +362,6 @@ proto.splashScreenAnimTextTicker = function(){
 proto.ytInit = function(apiReadyCallback){
 	var scriptTag, firstScriptTag;
 	
-	console.log('[Application.ytInit]');
-	
-	// ---
-	console.log('\t - add youtube API script');
 	scriptTag = document.createElement('script');
 	scriptTag.src = 'https://www.youtube.com/iframe_api';
 	firstScriptTag = document.getElementsByTagName('script')[0];
@@ -383,13 +371,12 @@ proto.ytInit = function(apiReadyCallback){
 		onYouTubeIframeAPIReady = apiReadyCallback;
 	
 	// --- create youtube players
-	console.log('\t - create youtube wrappers');
 	$('.yt-video-player').each(function(){
 		var player, playerUID;
 		
 		player = $(this);
 		playerUID = player.attr('id') || hongi.get_guid();
-		console.log('\t\t -  UID: "' + playerUID + '"');
+		// console.log('\t\t -  UID: "' + playerUID + '"');
 		
 		// create sub-elements
 		var html = '';
@@ -412,8 +399,6 @@ proto.ytInit = function(apiReadyCallback){
 	});
 };
 proto.ytOnAPIReady = function(){
-	console.log('[Application.ytOnAPIReady]');
-	
 	$('.yt-video-player').each(function() {
 		var wrapper, player, playerObj, playerId, videoId;
 		
@@ -446,7 +431,7 @@ proto.ytOnAPIReady = function(){
 	});
 };
 proto.ytPlayVideo = function(status, wrapper, player){
-	console.log('[Application.ytPlayVideo] status: ' + status);
+	
 	if(status){
 		wrapper.find('.control-button').fadeOut(800);
 		wrapper.find('.control-area').fadeOut(800);
@@ -455,7 +440,7 @@ proto.ytPlayVideo = function(status, wrapper, player){
 		wrapper.find('.yt-player-container').show();
 		player.playVideo();
 	}
-	else{
+	else if(wrapper.find('.thumbnail-container').length >= 1){
 		wrapper.find('.control-button').fadeIn(400);
 		wrapper.find('.control-area').fadeIn(400);
 		wrapper.find('.thumbnail-container').fadeIn(400);
@@ -466,7 +451,7 @@ proto.ytPlayVideo = function(status, wrapper, player){
 };
 proto._ytStateChanged = function(e){
 	if (e.data == YT.PlayerState.ENDED){
-		console.log('[Application._ytStateChanged] YT.PlayerState.ENDED');
+		// console.log('[Application._ytStateChanged] YT.PlayerState.ENDED');
 		hongi.app.ytPlayVideo(false, $(e.target.a).closest('.yt-video-player'), e.target);
 	}
 };
@@ -489,10 +474,6 @@ proto.share = function(data){
 	image = data.image
 		|| $('meta[property=\'og:image\']').attr('content');
 	
-	console.log("snetwork", snetwork);
-	console.log("title", (snetwork == 'twitter' ? $('meta[name="twitter:title"]').attr('content') : $('meta[property="og:title"]').attr('content')));
-	console.log("description", (snetwork == 'twitter' ? $('meta[name="twitter:description"]').attr('content') : $('meta[property="og:description"]').attr('content')));
-	
 	w = 600;
 	h = 450;
 	left = (window.screenX || window.screenLeft || 0) + parseInt((window.innerWidth - w) * .5);
@@ -500,8 +481,12 @@ proto.share = function(data){
 	winstatus = "status=1,width=" + w + ",height=" + h + ",left=" + left + ",top=" + top;
 	
 	switch(snetwork){
+		// @see  "Open Graph protocol" http://ogp.me/
 		case 'twitter':
+			// @see  https://dev.twitter.com/web/tweet-button
+			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
+			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card
 			req = "http://twitter.com/share?text=" + encodeURIComponent(title + " - " + description) + "&url=" + encodeURIComponent(url);
 			break;
 		
@@ -511,7 +496,7 @@ proto.share = function(data){
 			// @see  https://louisem.com/3838/facebook-link-thumbnail-image-sizes
 			// @see  https://developers.facebook.com/blog/post/2017/06/27/API-Change-Log-Modifying-Link-Previews/
 		default:
-			req = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+encodeURIComponent(url)+'&p[images][0]=' + image + '&p[title]=' + encodeURIComponent(title) + '&p[summary]='+encodeURIComponent(description);
+			req = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+encodeURIComponent(url); // +'&p[images][0]=' + image + '&p[title]=' + encodeURIComponent(title) + '&p[summary]='+encodeURIComponent(description);
 			break;
 	}
 	window.open(req, 'share-' + snetwork, winstatus);
@@ -527,7 +512,7 @@ window.onbeforeunload = function(){
 $(document).ready(function(){
 	var app;
 	
-	console.log('perce-neige 2017 - hongi.io');
+	// console.log('perce-neige 2017 - hongi.io');
 	
 	$(document).foundation();
 	
