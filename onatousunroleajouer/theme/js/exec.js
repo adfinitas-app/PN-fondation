@@ -22,6 +22,18 @@ hongi.settings = {
 			id: 'v3TT-DZSnZk'
 		}
 	},
+	urls: {
+		facebook: {
+			video: 'http://fondation.perce-neige.org/onatousunroleajouer?utm_source=PARTAGEFB_LP_unroleajouer17&utm_medium=facebook&utm_campaign=unroleajouer17',
+			campaign: 'http://fondation.perce-neige.org/onatousunroleajouer?utm_source=PARTAGEFB_LP_unroleajouer17&utm_medium=facebook&utm_campaign=unroleajouer17'
+		},
+		twitter: {
+			video: '',
+			campaign: 'http://bit.ly/2xI6HNF' // http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+		},
+		fb_profile: 'https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041782935',
+		donate: 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR'
+	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
 	isTablet: (/ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent.toLowerCase()))
 };
@@ -45,7 +57,7 @@ proto = hongi.Application.prototype;
 
 proto.registerInteractions = function(){
 	
-	// --- initialize action buttons (track mouse position for rollover animation)
+	// initialize action buttons (track mouse position for rollover animation)
 	$(document).on('mouseenter mouseout click', '.action-button', function(e) {
 		var parentOffset = $(this).offset();
 		$(this).find('span').css({
@@ -55,33 +67,12 @@ proto.registerInteractions = function(){
 		return true;
 	});
 	
-	
-	// ---   share print campaigns
-	$('.campaign-visual').each(function(){
-		var block;
-		
-		// add share actions
-		block = $(this);
-		
-		block.on('click', '.icon-link', function(){
-			var self = $(this);
-			
-			// snetwork, url, title, description, image
-			hongi.app.share({
-				snetwork: self.attr('data-target'),
-				url: document.location
-			});
-		});
-	});
-	
-	
-	// ---   watch page breakpoint state changes
+	// watch page breakpoint state changes
 	$(window).on('changed.zf.mediaquery', function(){
 		hongi.app.setHeadlineTarget(Foundation.MediaQuery.atLeast('large'));
 	});
 	
-	
-	// ---   equalizer resize
+	// equalizer resize
 	this.globalResizeTimeout_ID = null;
 	$(window).resize(function() {
 		if(hongi.app.globalResizeTimeout_ID != null)
@@ -92,19 +83,14 @@ proto.registerInteractions = function(){
 		}, 200);
 	});
 	
-	
-	this.setLink('.track-link-fb-profile', 'https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041782935', true);
-	this.setLink('.track-link-donate', 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR', true);
-	
-	// ---   headlines menu
+	// headlines menu navigation
 	$('#headlines-menu').find('.headline-card').each(function(index){
 		if( index >= 3)
 			return;
 		$(this).on('click', hongi.app.setHeadline.bind(hongi.app, index));
 	});
 	
-	
-	// --- headlines 1 video menus
+	// headlines 1 video playback
 	$(document).on('click', '[data-yt-target]', function(){
 		var item = $(this),
 			targetId = item.attr('data-yt-target'),
@@ -130,18 +116,31 @@ proto.registerInteractions = function(){
 		});
 	});
 	
-	$(document).on('click', '.track-link-video-share', function(){
-		var videoId, snetwork, url;
-		
-		videoId = $('#headlines1-yt-player').attr('data-current-video-id');
-		snetwork = $(this).attr('data-target');
-		url = 'https://www.youtube.com/watch?v=' + hongi.settings.videosData[videoId].id;
-		
-		hongi.app.share({
-			snetwork: snetwork,
-			url: url
+	
+	
+	// share campaigns
+	$('.campaign-visual').each(function(){
+		$(this).on('click', '.icon-link', function(){
+			var self = $(this);
+			hongi.app.share({
+				snetwork: self.attr('data-target'),
+				mode: 'campaign'
+			});
 		});
 	});
+	// share video
+	$(document).on('click', '.track-link-video-share', function(){
+		/*
+		 var url = 'https://www.youtube.com/watch?v=' + hongi.settings.videosData[$('#headlines1-yt-player').attr('data-current-video-id')].id;
+		*/
+		hongi.app.share({
+			snetwork: $(this).attr('data-target'),
+			mode: 'video'
+		});
+	});
+	
+	this.setLink('.track-link-fb-profile', hongi.settings.urls.fb_profile, true);
+	this.setLink('.track-link-donate', hongi.settings.urls.donate, true);
 	
 	
 	// --- init display
@@ -460,28 +459,19 @@ proto._ytStateChanged = function(e){
 // #################################################### SHARE
 
 proto.share = function(data){
-	var snetwork, url, title, description, image, w, h, top, left, winstatus, req;
+	var snetwork, mode, url, title, description, w, h, top, left, winstatus, req;
 	
+	mode = data.mode || 'video';
 	snetwork = data.snetwork.toLowerCase()
 		|| 'twitter';
-	url = data.url
-		|| window.location;
+	url = hongi.settings.urls[snetwork][mode];
 	title = data.title
 		|| (snetwork == 'twitter' ? $('meta[name="twitter:title"]').attr('content') : $('meta[property="og:title"]').attr('content'));
-	
 	description = data.description
 		|| (snetwork == 'twitter' ? $('meta[name="twitter:description"]').attr('content') : $('meta[property="og:description"]').attr('content'));
-	image = data.image
-		|| $('meta[property=\'og:image\']').attr('content');
-	
-	w = 600;
-	h = 450;
-	left = (window.screenX || window.screenLeft || 0) + parseInt((window.innerWidth - w) * .5);
-	top = (window.screenY || window.screenTop || 0) + parseInt((window.innerHeight - h) * .5);
-	winstatus = "status=1,width=" + w + ",height=" + h + ",left=" + left + ",top=" + top;
 	
 	switch(snetwork){
-		// @see  "Open Graph protocol" http://ogp.me/
+		
 		case 'twitter':
 			// @see  https://dev.twitter.com/web/tweet-button
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
@@ -491,14 +481,22 @@ proto.share = function(data){
 			break;
 		
 		case 'facebook':
+		// @see  "Open Graph protocol" http://ogp.me/
 			// @see  https://developers.facebook.com/docs/sharing/webmasters
 			// @see  https://developers.facebook.com/tools/debug/
 			// @see  https://louisem.com/3838/facebook-link-thumbnail-image-sizes
 			// @see  https://developers.facebook.com/blog/post/2017/06/27/API-Change-Log-Modifying-Link-Previews/
 		default:
-			req = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+encodeURIComponent(url); // +'&p[images][0]=' + image + '&p[title]=' + encodeURIComponent(title) + '&p[summary]='+encodeURIComponent(description);
+			req = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+encodeURIComponent(url);
 			break;
 	}
+	
+	w = 600;
+	h = 450;
+	left = (window.screenX || window.screenLeft || 0) + parseInt((window.innerWidth - w) * .5);
+	top = (window.screenY || window.screenTop || 0) + parseInt((window.innerHeight - h) * .5);
+	winstatus = "status=1,width=" + w + ",height=" + h + ",left=" + left + ",top=" + top;
+	
 	window.open(req, 'share-' + snetwork, winstatus);
 };
 
