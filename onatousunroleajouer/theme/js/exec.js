@@ -106,14 +106,22 @@ proto.registerInteractions = function(){
 			targetId = item.attr('data-yt-target'),
 			videoId = item.attr('data-yt-id'),
 			isActive = item.hasClass('active'),
+			wrapper = $('#' + targetId);
 			player = hongi.app.ytPlayers[targetId];
 		
 		if(isActive){
 			// player.getPlayerState() == 1 ? player.pauseVideo() : player.playVideo();
 		}
 		else{
-			$('#' + targetId).attr('data-current-video-id', videoId);
+			wrapper
+				.attr('data-current-video-id', videoId)
+				.attr('data-thumbnail', hongi.settings.videosData[videoId].preview)
+				.find('.thumbnail-container').css({
+					'background-image': 'url("' + hongi.settings.videosData[videoId].preview + '")',
+					'background-size': 'cover'
+				});
 			player.loadVideoById(hongi.settings.videosData[videoId].id);
+			hongi.app.ytPlayVideo(true, wrapper, player);
 		}
 		
 		// set buttons states
@@ -127,7 +135,6 @@ proto.registerInteractions = function(){
 	});
 	
 	
-	
 	// share campaigns
 	$('.campaign-visual').each(function(){
 		$(this).on('click', '.icon-link', function(){
@@ -138,6 +145,7 @@ proto.registerInteractions = function(){
 			});
 		});
 	});
+	
 	// share video
 	$(document).on('click', '.track-link-video-share', function(){
 		/*
@@ -204,7 +212,7 @@ proto.setHeadline = function(index){
 	}
 	
 	if(this.currentHeadline == 0){
-		this.ytPlayers['headlines1-yt-player'].stopVideo();
+		this.ytPlayVideo(false, $('#headlines1-yt-player'), this.ytPlayers['headlines1-yt-player']);
 	}
 	this.currentHeadline = index;
 	
@@ -439,6 +447,8 @@ proto.ytOnAPIReady = function(){
 		});
 	});
 };
+
+
 proto.ytPlayVideo = function(status, wrapper, player){
 	
 	if(status){
