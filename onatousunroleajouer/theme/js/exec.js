@@ -37,7 +37,7 @@ hongi.settings = {
 		donate: 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR'
 	},
 	twitterTexts: {
-		campaign: "ON A TOUS UN RÔLE À JOUER ! Découvrez Bruno Solo dans l'un de ses plus beaux rôles aux côtés de Perce-Neige.",
+		campaign: "#ONATOUSUNROLEAJOUER ! Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige.",
 		video: "ON A TOUS UN RÔLE À JOUER ! Notre nouveau film : Bruno Solo vous propose un voyage au cœur d’une Maison Perce-Neige."
 	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
