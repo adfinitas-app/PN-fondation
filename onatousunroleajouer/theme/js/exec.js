@@ -25,11 +25,11 @@ hongi.settings = {
 	urls: {
 		facebook: {
 			video: 'http://fondation.perce-neige.org/onatousunroleajouer?utm_source=PARTAGEFB_LP_unroleajouer17&utm_medium=facebook&utm_campaign=unroleajouer17',
-			campaign: 'http://fondation.perce-neige.org/onatousunroleajouer?utm_source=PARTAGEFB_LP_unroleajouer17&utm_medium=facebook&utm_campaign=unroleajouer17'
+			campaign: 'http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17'
 		},
 		twitter: {
-			video: '',
-			campaign: 'http://bit.ly/2xI6HNF' // http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+			campaign: 'http://bit.ly/2xO61GN', // http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+			video: 'http://bit.ly/2xI6HNF' // http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
 		},
 		fb_profile: 'https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041782935',
 		donate: 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR'
@@ -477,7 +477,7 @@ proto.share = function(data){
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card
-			req = "http://twitter.com/share?text=" + encodeURIComponent(title + " - " + description) + "&url=" + encodeURIComponent(url);
+			req = "http://twitter.com/share?text=" + encodeURIComponent(title + " " + description) + "&url=" + encodeURIComponent(url);
 			break;
 		
 		case 'facebook':
