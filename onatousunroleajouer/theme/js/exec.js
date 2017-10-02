@@ -10,16 +10,20 @@ hongi.settings = {
 	splashScreenForceSkip: false,
 	videosData: {
 		webdoc: {
-			id: 'kwd-ga6g-HY'
+			id: 'kwd-ga6g-HY',
+			preview: 'theme/mm/preview-webdoc.jpg'
 		},
 		teaserBS: {
-			id: 'KQjHpq8HVy0'
+			id: 'KQjHpq8HVy0',
+			preview: 'theme/mm/preview-teaser-bs.jpg'
 		},
 		teaserActeurs: {
-			id: 'veZZXl0_5cQ'
+			id: 'veZZXl0_5cQ',
+			preview: 'theme/mm/preview-teaser-acteurs.jpg'
 		},
 		teaserParents: {
-			id: 'v3TT-DZSnZk'
+			id: 'v3TT-DZSnZk',
+			preview: 'theme/mm/preview-teaser-parents.jpg'
 		}
 	},
 	urls: {
@@ -105,7 +109,7 @@ proto.registerInteractions = function(){
 			player = hongi.app.ytPlayers[targetId];
 		
 		if(isActive){
-			player.getPlayerState() == 1 ? player.pauseVideo() : player.playVideo();
+			// player.getPlayerState() == 1 ? player.pauseVideo() : player.playVideo();
 		}
 		else{
 			$('#' + targetId).attr('data-current-video-id', videoId);
@@ -468,8 +472,7 @@ proto.share = function(data){
 	var snetwork, mode, url, title, description, w, h, top, left, winstatus, req;
 	
 	mode = data.mode || 'video';
-	snetwork = data.snetwork.toLowerCase()
-		|| 'twitter';
+	snetwork = data.snetwork.toLowerCase() || 'twitter';
 	url = hongi.settings.urls[snetwork][mode];
 	
 	switch(snetwork){
