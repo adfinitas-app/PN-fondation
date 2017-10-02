@@ -28,11 +28,17 @@ hongi.settings = {
 			campaign: 'http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17'
 		},
 		twitter: {
-			campaign: 'http://bit.ly/2xO61GN', // http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
-			video: 'http://bit.ly/2xI6HNF' // http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+			// http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+			campaign: 'http://bit.ly/2xO61GN',
+			// http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer17&utm_medium=twitter&utm_campaign=unroleajouer17
+			video: 'http://bit.ly/2xI6HNF'
 		},
 		fb_profile: 'https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041782935',
 		donate: 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR'
+	},
+	twitterTexts: {
+		campaign: "ON A TOUS UN RÔLE À JOUER ! Découvrez Bruno Solo dans l'un de ses plus beaux rôles aux côtés de Perce-Neige.",
+		video: "ON A TOUS UN RÔLE À JOUER ! Notre nouveau film : Bruno Solo vous propose un voyage au cœur d’une Maison Perce-Neige."
 	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
 	isTablet: (/ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent.toLowerCase()))
@@ -465,10 +471,6 @@ proto.share = function(data){
 	snetwork = data.snetwork.toLowerCase()
 		|| 'twitter';
 	url = hongi.settings.urls[snetwork][mode];
-	title = data.title
-		|| (snetwork == 'twitter' ? $('meta[name="twitter:title"]').attr('content') : $('meta[property="og:title"]').attr('content'));
-	description = data.description
-		|| (snetwork == 'twitter' ? $('meta[name="twitter:description"]').attr('content') : $('meta[property="og:description"]').attr('content'));
 	
 	switch(snetwork){
 		
@@ -477,7 +479,7 @@ proto.share = function(data){
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card
-			req = "http://twitter.com/share?text=" + encodeURIComponent(title + " " + description) + "&url=" + encodeURIComponent(url);
+			req = "http://twitter.com/share?text=" + encodeURIComponent(hongi.settings.twitterTexts[mode]) + "&url=" + encodeURIComponent(url);
 			break;
 		
 		case 'facebook':
