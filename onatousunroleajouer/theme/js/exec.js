@@ -38,7 +38,7 @@ hongi.settings = {
 	},
 	twitterTexts: {
 		campaign: "#ONATOUSUNROLEAJOUER ! Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige.",
-		video: "ON A TOUS UN RÔLE À JOUER ! Notre nouveau film : Bruno Solo vous propose un voyage au cœur d’une Maison Perce-Neige."
+		video: "#ONATOUSUNROLEAJOUER ! Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige."
 	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
 	isTablet: (/ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent.toLowerCase()))
