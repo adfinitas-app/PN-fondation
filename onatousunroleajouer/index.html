@@ -137,11 +137,17 @@
 <div class="cell cell-spacer">&nbsp;</div>
 
 <div id="splash-screen-chair" class="cell">
-	<video width="120" height="96" preload="auto" autoplay style="border: none; background-color: white;" >
-		<source src="theme/mm/splash-screen-chair.mp4" type="video/mp4" />
+	
+	<div class="show-for-small-only">
 		<img src="theme/mm/splash-screen-chair-alt.png" alt="" />
-		<p></p>
-	</video>
+	</div>
+	<div class="hide-for-small-only">
+		<video width="120" height="96" preload="auto" autoplay style="border: none; background-color: white;" >
+			<source src="theme/mm/splash-screen-chair.mp4" type="video/mp4" />
+			<img src="theme/mm/splash-screen-chair-alt.png" alt="" />
+		</video>
+	</div>
+	
 	<h6 id="splash-screen-animated-text">Chargement</h6>
 </div>
 <div class="cell cell-spacer">&nbsp;</div>
