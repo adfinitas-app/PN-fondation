@@ -37,9 +37,10 @@ function Track(id, category) {
   element.addEventListener('click', click, false);
 }
 
-var headlinesEvent = function() {
-    var elem = document.getElementById('headlines1-yt-player');
+var dynamicVideoEvent = function(id) {
+    var elem = document.getElementById(id);
     function click(e) {
+        e.preventDefault();
         var activeVideo = elem.getAttribute('data-current-video-id');
         console.log('activeVideo : ' + activeVideo);
         var category = '';
@@ -54,7 +55,7 @@ var headlinesEvent = function() {
         }
         console.log('Tracked click on this category: ' + category);
     }
-    console.log('add click event on: headlines1-yt-player');
+    console.log('add click event on: ' + id);
     elem.addEventListener('click', click, false)
 };
 
@@ -64,5 +65,6 @@ $(document).ready(function() {
         var category = categoryToTrack[i][0];
         new Track(id, category);
     };
-    headlinesEvent();
+    dynamicVideoEvent('headlines1-yt-player');
+    dynamicVideoEvent('campaign-yt-player');
 });
