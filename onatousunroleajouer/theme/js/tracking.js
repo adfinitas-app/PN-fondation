@@ -15,7 +15,6 @@ var categoryToTrack = [
 	['TEASERBRUNO_LP_unroleajouer17', 'TEASERBRUNO'],
 	['TEASERPARENTS_LP_unroleajouer17', 'TEASERPARENTS'],
 	['TEASERACTEURS_LP_unroleajouer17', 'TEASERACTEURS'],
-	['TEASERACTEURS_LP_unroleajouer17', 'headlines1-yt-player'],
 	['DECORFB_LP_unroleajouer17', 'DECORFB'],
 	['PARTAGEFB_LP_unroleajouer17', 'PARTAGEFB'],
 	['PARTAGETW_LP_unroleajouer17', 'PARTAGETW'],
@@ -25,6 +24,7 @@ var categoryToTrack = [
 	['SUIVITW_YT_unroleajouer17', 'SUIVITW_YT'],
 	['BTNDON_LP_unroleajouer17', 'BTNDON']
 ];
+
 function Track(id, category) {
   var element = document.getElementById(id);
   if (!element)
@@ -37,10 +37,32 @@ function Track(id, category) {
   element.addEventListener('click', click, false);
 }
 
+var headlinesEvent = function() {
+    var elem = document.getElementById('headlines1-yt-player');
+    function click(e) {
+        var activeVideo = elem.getAttribute('data-current-video-id');
+        console.log('activeVideo : ' + activeVideo);
+        var category = '';
+        if (activeVideo === 'TeaserActeurs') {
+            category = 'TEASERACTEURS_LP_unroleajouer17';
+        } else if (activeVideo === 'TeaserBS') {
+            category = 'TEASERBRUNO_LP_unroleajouer17';
+        } else if (activeVideo === 'TeaserParents') {
+            category = 'TEASERPARENTS_LP_unroleajouer17'
+        } else if (activeVideo === 'webdoc') {
+            category = 'WEBDOCU_LP_unroleajouer17'
+        }
+        console.log('Tracked click on this category: ' + category);
+    }
+    console.log('add click event on: headlines1-yt-player');
+    elem.addEventListener('click', click, false)
+};
+
 $(document).ready(function() {
     for (var i = 0; i < categoryToTrack.length; i++){
         var id = categoryToTrack[i][1];
         var category = categoryToTrack[i][0];
         new Track(id, category);
     };
+    headlinesEvent();
 });
