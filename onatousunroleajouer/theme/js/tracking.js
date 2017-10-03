@@ -35,7 +35,7 @@ $(document).ready(function() {
             id.addEventListener('click', function() {
                 console.log('click');
                 trackCategory(category);
-            }, false);   
+            }, true);   
         }
     };
 });
