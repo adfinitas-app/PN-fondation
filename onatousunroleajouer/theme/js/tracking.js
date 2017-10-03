@@ -43,11 +43,11 @@ var headlinesEvent = function() {
         var activeVideo = elem.getAttribute('data-current-video-id');
         console.log('activeVideo : ' + activeVideo);
         var category = '';
-        if (activeVideo === 'TeaserActeurs') {
+        if (activeVideo === 'teaserActeurs') {
             category = 'TEASERACTEURS_LP_unroleajouer17';
-        } else if (activeVideo === 'TeaserBS') {
+        } else if (activeVideo === 'teaserBS') {
             category = 'TEASERBRUNO_LP_unroleajouer17';
-        } else if (activeVideo === 'TeaserParents') {
+        } else if (activeVideo === 'teaserParents') {
             category = 'TEASERPARENTS_LP_unroleajouer17'
         } else if (activeVideo === 'webdoc') {
             category = 'WEBDOCU_LP_unroleajouer17'
