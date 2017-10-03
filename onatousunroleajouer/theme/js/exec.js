@@ -425,7 +425,7 @@ proto.ytOnAPIReady = function(){
 		playerObj = wrapper.closest('.yt-video-player');
 		playerObj.attr('data-current-video-id', videoId);
 		// LA LIGNE SUIVANTE EST UN TEST
-		playerObj.attr('id', videoId);
+		//playerObj.attr('id', videoId);
 		playerId = playerObj.attr('id');
 		
 		player = new YT.Player(
