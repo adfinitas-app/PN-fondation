@@ -1,4 +1,5 @@
 var trackCategory = function(category) {
+    console.log('track : ' + category);
 	woopra.track('interaction',
             {
                 category: category,
