@@ -24,18 +24,18 @@ var categoryToTrack = [
 	['SUIVITW_YT_unroleajouer17', 'SUIVITW_YT'],
 	['BTNDON_LP_unroleajouer17', 'BTNDON']
 ];
+function Track(id, category) {
+  var element = document.getElementById(id);
+  function click() {
+    alert('My category is ' + category);
+  }
+  element.addEventListener('click', click, false);
+}
 
 $(document).ready(function() {
-    console.log('on rentre');
     for (var i = 0; i < categoryToTrack.length; i++){
-        console.log('id: ' + categoryToTrack[i][1]);
-        var id = document.getElementById(categoryToTrack[i][1]);
+        var id = categoryToTrack[i][1];
         var category = categoryToTrack[i][0];
-        if (id) {
-            id.addEventListener('click', function() {
-                console.log('click');
-                trackCategory(category);
-            }, true);   
-        }
+        new Track(id, category);
     };
 });
