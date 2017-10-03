@@ -11,7 +11,7 @@ var trackCategory = function(category) {
 };
 
 var categoryToTrack = [
-	['WEBDOCU_LP_unroleajouer17', 'WEBDOCU'],
+	['WEBDOCU_LP_unroleajouer17', 'webdoc'],
 	['TEASERBRUNO_LP_unroleajouer17', 'TEASERBRUNO'],
 	['TEASERPARENTS_LP_unroleajouer17', 'TEASERPARENTS'],
 	['TEASERACTEURS_LP_unroleajouer17', 'TEASERACTEURS'],
