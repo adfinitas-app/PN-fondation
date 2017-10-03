@@ -27,7 +27,7 @@ var categoryToTrack = [
 function Track(id, category) {
   var element = document.getElementById(id);
   function click() {
-    alert('My category is ' + category);
+    console.log('My category is ' + category);
   }
   element.addEventListener('click', click, false);
 }
