@@ -31,7 +31,8 @@ function Track(id, category, type) {
   if (type === 'id')
     element = document.getElementById(id);
   else
-    element = document.getElementsByClassName(id);
+  return ;
+  //  element = document.getElementsByClassName(id);
   if (!element)
     return ;
     console.log('add click event on: ' + id);
