@@ -70,6 +70,7 @@ var classEvent = function(classe) {
     function click() {
         
     }
+    
     elem.addEventListener('click', click, false);
 }
 
