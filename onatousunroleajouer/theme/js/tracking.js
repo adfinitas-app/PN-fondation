@@ -28,8 +28,8 @@ var categoryToTrack = [
 $(document).ready(function() {
     for (var i = 0; i < categoryToTrack.length; i++){
         console.log('id: ' + categoryToTrack[i][1]);
-	    $('#' + categoryToTrack[i][1]).click(function() {
-		    trackCategory(categoryToTrack[i][0]);
-	    });
+        document.on('click', '#' + categoryToTrack[i][1], function() {
+            trackCategory(categoryToTrack[i][0]);
+        });
     };
 });
