@@ -15,6 +15,7 @@ var categoryToTrack = [
 	['TEASERBRUNO_LP_unroleajouer17', 'TEASERBRUNO'],
 	['TEASERPARENTS_LP_unroleajouer17', 'TEASERPARENTS'],
 	['TEASERACTEURS_LP_unroleajouer17', 'TEASERACTEURS'],
+	['TEASERACTEURS_LP_unroleajouer17', 'headlines1-yt-player']
 	['DECORFB_LP_unroleajouer17', 'DECORFB'],
 	['PARTAGEFB_LP_unroleajouer17', 'PARTAGEFB'],
 	['PARTAGETW_LP_unroleajouer17', 'PARTAGETW'],
