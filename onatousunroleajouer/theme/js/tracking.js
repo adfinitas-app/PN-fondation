@@ -28,7 +28,8 @@ function Track(id, category) {
   var element = document.getElementById(id);
   if (!element)
     return ;
-  function click() {
+  function click(e) {
+      e.preventDefault();
     console.log('My category is ' + category);
   }
   element.addEventListener('click', click, false);
