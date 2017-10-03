@@ -24,9 +24,11 @@ var categoryToTrack = [
 	['BTNDON_LP_unroleajouer17', 'BTNDON']
 ];
 
-for (var i = 0; i < categoryToTrack.length; i++){
-    console.log('id: ' + categoryToTrack[i][1]);
-	$('#' + categoryToTrack[i][1]).click(function() {
-		trackCategory(categoryToTrack[i][0]);
-	});
-};
+$(document).ready(function() {
+    for (var i = 0; i < categoryToTrack.length; i++){
+        console.log('id: ' + categoryToTrack[i][1]);
+	    $('#' + categoryToTrack[i][1]).click(function() {
+		    trackCategory(categoryToTrack[i][0]);
+	    });
+    };
+});
