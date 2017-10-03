@@ -29,7 +29,8 @@ $(document).ready(function() {
     console.log('on rentre');
     for (var i = 0; i < categoryToTrack.length; i++){
         console.log('id: ' + categoryToTrack[i][1]);
-        $('#' + categoryToTrack[i][1]).addEventListener('click', function() {
+        var id = document.getElementById(categoryToTrack[i][1]);
+        id.addEventListener('click', function() {
             trackCategory(categoryToTrack[i][0]);
         }, false);
     };
