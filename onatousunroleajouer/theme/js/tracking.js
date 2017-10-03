@@ -30,9 +30,11 @@ $(document).ready(function() {
     for (var i = 0; i < categoryToTrack.length; i++){
         console.log('id: ' + categoryToTrack[i][1]);
         var id = document.getElementById(categoryToTrack[i][1]);
+        var category = categoryToTrack[i][0];
         if (id) {
             id.addEventListener('click', function() {
-                trackCategory(categoryToTrack[i][0]);
+                console.log('click');
+                trackCategory(category);
             }, false);   
         }
     };
