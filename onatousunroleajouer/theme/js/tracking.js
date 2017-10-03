@@ -13,7 +13,7 @@ var categoryToTrack = [
 	['WEBDOCU_LP_unroleajouer17', 'WEBDOCU'],
 	['TEASERBRUNO_LP_unroleajouer17', 'TEASERBRUNO'],
 	['TEASERPARENTS_LP_unroleajouer17', 'TEASERPARENTS'],
-	['TEASERACTEURS_LP_unroleajouer17', 'TEASERFACTEURS'],
+	['TEASERACTEURS_LP_unroleajouer17', 'TEASERACTEURS'],
 	['DECORFB_LP_unroleajouer17', 'DECORFB'],
 	['PARTAGEFB_LP_unroleajouer17', 'PARTAGEFB'],
 	['PARTAGETW_LP_unroleajouer17', 'PARTAGETW'],
