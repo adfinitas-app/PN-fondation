@@ -39,7 +39,7 @@ $(document).ready(function() {
     console.log(e.defaultPrevented);  // will be false
     e.preventDefault();   // does nothing since the listener is passive
     console.log(e.defaultPrevented);  // still false
-  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+  }, {passive: true});
     for (var i = 0; i < categoryToTrack.length; i++){
         var id = categoryToTrack[i][1];
         var category = categoryToTrack[i][0];
