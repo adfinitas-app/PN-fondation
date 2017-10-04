@@ -518,6 +518,7 @@ proto.share = function(data){
 			// @see  https://louisem.com/3838/facebook-link-thumbnail-image-sizes
 			// @see  https://developers.facebook.com/blog/post/2017/06/27/API-Change-Log-Modifying-Link-Previews/
 		default:
+			// https://www.facebook.com/dialog/feed?&app_id=627838717604263&display=popup&link=http://bit.ly/2xI6HNF
 			req = 'https://www.facebook.com/dialog/feed?&app_id=627838717604263&display=popup&link='+encodeURIComponent(url);
 			break;
 	}
@@ -534,6 +535,23 @@ proto.share = function(data){
 
 // --- reset scroll position
 // avoid strange viewport settings while refreshing page
+window.fbAsyncInit = function() {
+	FB.init({
+		appId      : '627838717604263',
+		xfbml      : true,
+		version    : 'v2.10'
+	});
+	FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) {return;}
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 window.onbeforeunload = function(){
 	window.scrollTo(0,0);
 };
