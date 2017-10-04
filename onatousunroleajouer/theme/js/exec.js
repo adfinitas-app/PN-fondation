@@ -473,7 +473,7 @@ proto.ytPlayVideo = function(status, wrapper){
 		wrapper.find('.thumbnail-container').fadeIn(400);
 		
 		wrapper.find('.yt-player-container').hide();
-		player.stopVideo();
+		player.pauseVideo();
 	}
 };
 proto._ytStateChanged = function(e){
