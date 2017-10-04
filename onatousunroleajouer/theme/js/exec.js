@@ -41,8 +41,8 @@ hongi.settings = {
 		donate: 'https://donner.perce-neige.org/b?cid=40&lang=fr_FR'
 	},
 	twitterTexts: {
-		campaign: "#ONATOUSUNROLEAJOUER ! Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige.",
-		video: "#ONATOUSUNROLEAJOUER ! Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige."
+		campaign: "#ONATOUSUNROLEAJOUER Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige.",
+		video: "#ONATOUSUNROLEAJOUER Découvrez les comédiens qui jouent l'un de leurs plus beaux rôles aux côtés de Perce-Neige."
 	},
 	isMobile: (/iphone|ipod|android|blackberry|opera|mini|windows\sce|palm|smartphone|iemobile/i.test(navigator.userAgent.toLowerCase())),
 	isTablet: (/ipad|android|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i.test(navigator.userAgent.toLowerCase()))
@@ -60,6 +60,8 @@ hongi.Application = function(){
 	this.ytPlayers = {};
 	this.currentHeadline = null;
 	this.headlinesLargeStatus = null;
+	this.raceIsYTReady = false;
+	this.raceIsHeadlineTargetReady = false;
 };
 proto = hongi.Application.prototype;
 
@@ -101,38 +103,7 @@ proto.registerInteractions = function(){
 	});
 	
 	// headlines 1 video playback
-	$(document).on('click', '[data-yt-target]', function(){
-		var item = $(this),
-			targetId = item.attr('data-yt-target'),
-			videoId = item.attr('data-yt-id'),
-			isActive = item.hasClass('active'),
-			wrapper = $('#' + targetId);
-			player = hongi.app.ytPlayers[targetId];
-		
-		if(isActive){
-			// player.getPlayerState() == 1 ? player.pauseVideo() : player.playVideo();
-		}
-		else{
-			wrapper
-				.attr('data-current-video-id', videoId)
-				.attr('data-thumbnail', hongi.settings.videosData[videoId].preview)
-				.find('.thumbnail-container').css({
-					'background-image': 'url("' + hongi.settings.videosData[videoId].preview + '")',
-					'background-size': 'cover'
-				});
-			player.loadVideoById(hongi.settings.videosData[videoId].id);
-			hongi.app.ytPlayVideo(true, wrapper, player);
-		}
-		
-		// set buttons states
-		$('[data-yt-target]').each(function(){
-			var mi = $(this);
-			
-			if(mi.attr('data-yt-target') == targetId){
-				mi.toggleClass('active', mi.attr('data-yt-id') == videoId);
-			}
-		});
-	});
+	$(document).on('click', '[data-yt-target]', hongi.app.setHeadline1Video);
 	
 	
 	// share campaigns
@@ -198,6 +169,39 @@ proto.setLink = function(selector, url, asblank){
 
 // #################################################### HEADLINES MENU
 
+proto.setHeadline1Video = function(){
+	var videoId = $(this).attr('data-yt-id');
+	// console.log('[setHeadline1Video]', videoId);
+	hongi.app.setHeadlineVideoContent($(this).attr('data-yt-id'));
+};
+proto.setHeadlineVideoContent = function(videoId){
+	var wrapper, player;
+	
+	player = hongi.app.ytPlayers['headlines1-yt-player'];
+	wrapper = $('#headlines1-yt-player');
+	
+	// console.log('[setHeadline1Video] video: "' + videoId + '" in player: "headlines1-yt-player"');
+	
+	wrapper
+		.attr('data-current-video-id', videoId)
+		.attr('data-thumbnail', hongi.settings.videosData[videoId].preview)
+		.find('.thumbnail-container').css({
+		'background-image': 'url("' + hongi.settings.videosData[videoId].preview + '")',
+		'background-size': 'cover'
+	});
+	player.loadVideoById({
+		videoId: hongi.settings.videosData[videoId].id
+	});
+	hongi.app.ytPlayVideo(true, wrapper);
+	
+	// set buttons states
+	$('[data-yt-target]').each(function(){
+		var mi = $(this);
+		if(mi.attr('data-yt-target') == playerId){
+			mi.toggleClass('active', mi.attr('data-yt-id') == videoId);
+		}
+	});
+};
 proto.setHeadline = function(index){
 	// console.log('setHeadline', index);
 	
@@ -212,7 +216,7 @@ proto.setHeadline = function(index){
 	}
 	
 	if(this.currentHeadline == 0){
-		this.ytPlayVideo(false, $('#headlines1-yt-player'), this.ytPlayers['headlines1-yt-player']);
+		this.ytPlayVideo(false, $('#headlines1-yt-player'));
 	}
 	this.currentHeadline = index;
 	
@@ -241,41 +245,40 @@ proto.setHeadline = function(index){
 	
 	
 	hongi.app.refreshEqualizers();
-	
-	/*
-	setTimeout(function(){
-		console.log('Foundation:' + Foundation, Foundation, Foundation.reInit);
-		Foundation.reInit('equalizer');
-	}, 150);
-	*/
 };
 proto.setHeadlineTarget = function(isLargeStatus){
 	var largeContainer;
 	
 	if(isLargeStatus === this.headlinesLargeStatus){
-		// console.log('setHeadlineTarget', 'skip process statuses are identical (isLargeStatus: ' + isLargeStatus + ')');
 		return;
 	}
-	
 	this.headlinesLargeStatus = isLargeStatus;
+	
+	// console.log('[setHeadlineTarget] isLargeStatus: ' + isLargeStatus);
+	
+	
 	if(isLargeStatus){
 		largeContainer = $('#headlines-pages-large-container');
-		$('#headline-content1').remove().appendTo(largeContainer);
-		$('#headline-content2').remove().appendTo(largeContainer);
-		$('#headline-content3').remove().appendTo(largeContainer);
+		$('#headline-content1').detach().appendTo(largeContainer);
+		$('#headline-content2').detach().appendTo(largeContainer);
+		$('#headline-content3').detach().appendTo(largeContainer);
 	}
 	else{
-		$('#headline-content1').remove().appendTo($('#container-headlines1'));
-		$('#headline-content2').remove().appendTo($('#container-headlines2'));
-		$('#headline-content3').remove().appendTo($('#container-headlines3'));
+		$('#headline-content1').detach().appendTo($('#container-headlines1'));
+		$('#headline-content2').detach().appendTo($('#container-headlines2'));
+		$('#headline-content3').detach().appendTo($('#container-headlines3'));
 	}
+	
+	this.raceIsHeadlineTargetReady = true;
+	if(this.raceIsYTReady)
+		hongi.app.ytInitPlayer('headlines1-yt-player', 'teaserActeurs');
 };
 
 
 // #################################################### STATES
 
 proto.splashScreenOpen = function(){
-	console.info('[Application.splashScreenOpen]');
+	// console.info('[Application.splashScreenOpen]');
 	
 	var splashScreen = $('#page-splash-screen');
 	this.splashScreenTl = new TimelineLite();
@@ -337,7 +340,7 @@ proto.splashScreenOpen = function(){
 proto.splashScreenClose = function(){
 	var splashScreen = $('#page-splash-screen');
 	
-	console.info('[Application.splashScreenClose]');
+	// console.info('[Application.splashScreenClose]');
 	
 	// release callbacks and listeners
 	splashScreen.off('click', hongi.app.splashScreenClose);
@@ -386,80 +389,83 @@ proto.ytInit = function(apiReadyCallback){
 	
 	if(apiReadyCallback != null)
 		onYouTubeIframeAPIReady = apiReadyCallback;
-	
-	// --- create youtube players
-	$('.yt-video-player').each(function(){
-		var player, playerUID;
-		
-		player = $(this);
-		playerUID = player.attr('id') || hongi.get_guid();
-		// console.log('\t\t -  UID: "' + playerUID + '"');
-		
-		// create sub-elements
-		var html = '';
-		if(!player.hasClass('no-custom-embed')){
-			html += '<div class="control-area"></div>'
-				+ '<div class="control-button"></div>'
-				+ '<div class="thumbnail-container"></div>';
-		}
-		html += '<div class="yt-player-container">' +
-			'<div class="yt-player-placeholder" id="real_' + playerUID + '"></div>' +
-			'</div>';
-		$(html).appendTo(player);
-		
-		// show thumbnail
-		player.find('.thumbnail-container').css({
-			// 'border': 'red 1px solid',
-			'background-image': 'url("' + player.attr('data-thumbnail') + '")',
-			'background-size': 'cover'
-		});
-	});
 };
 proto.ytOnAPIReady = function(){
-	$('.yt-video-player').each(function() {
-		var wrapper, player, playerObj, playerId, videoId;
-		
-		wrapper = $(this);
+	this.ytInitPlayer('campaign-yt-player');
+	this.raceIsYTReady = true;
+	if(this.raceIsHeadlineTargetReady)
+		hongi.app.ytInitPlayer('headlines1-yt-player', 'teaserActeurs');
+};
+proto.ytInitPlayer = function(playerId, videoId){
+	var wrapper, player, html;
+	
+	wrapper = $('#' + playerId);
+	
+	// store new settings
+	if(videoId == null)
 		videoId = wrapper.attr('data-yt-id');
-		
-		playerObj = wrapper.closest('.yt-video-player');
-		playerObj.attr('data-current-video-id', videoId);
-		// LA LIGNE SUIVANTE EST UN TEST
-		//playerObj.attr('id', videoId);
-		playerId = playerObj.attr('id');
-		
-		player = new YT.Player(
-			wrapper.find('.yt-player-placeholder').attr('id'), {
-				height: '100%',
-				width: '100%',
-				videoId: hongi.settings.videosData[videoId].id,
-				playerVars: {
-					'autoplay': 0,
-					'rel': 0,
-					'showinfo': 0
-				},
-				events: {
-					'onStateChange': hongi.app._ytStateChanged
-				}
-		});
-		hongi.app.ytPlayers[playerId] = player;
-		
-		wrapper.on('click', '.control-area', function(){
-			hongi.app.ytPlayVideo(true, wrapper, player);
-		});
+	else{
+		wrapper.attr('data-yt-id', videoId);
+		wrapper.attr('data-thumbnail', hongi.settings.videosData[videoId].preview);
+	}
+	wrapper.attr('data-current-video-id', videoId);
+	
+	
+	// reset wrapper content
+	wrapper.empty();
+	html = '';
+	if(!wrapper.hasClass('no-custom-embed')){
+		html += '<div class="control-area"></div>'
+			+ '<div class="control-button"></div>'
+			+ '<div class="thumbnail-container"></div>';
+	}
+	html += '<div class="yt-player-container">'
+		+ '<div class="yt-player-placeholder" id="real_' + playerId + '"></div>'
+		+ '</div>';
+	$(html).appendTo(wrapper);
+	wrapper.find('.thumbnail-container').css({
+		'background-image': 'url("' + wrapper.attr('data-thumbnail') + '")',
+		'background-size': 'cover'
+	});
+	
+	
+	
+	player = new YT.Player(wrapper.find('.yt-player-placeholder').attr('id'), {
+		height: '100%',
+		width: '100%',
+		videoId: hongi.settings.videosData[videoId].id,
+		playerVars: {
+			autoplay: 0,
+			rel: 0,
+			showinfo: 0
+		},
+		events: {
+			onStateChange: hongi.app._ytStateChanged
+		}
+	});
+	hongi.app.ytPlayers[playerId] = player;
+	
+	$(document).on('click', '.yt-video-player .control-area', function(){
+		hongi.app.ytPlayVideo(true, $(this).closest('.yt-video-player'));
 	});
 };
-
-
-proto.ytPlayVideo = function(status, wrapper, player){
+proto.ytPlayVideo = function(status, wrapper){
+	var playerId = wrapper.closest('.yt-video-player').attr('id');
+	var player = hongi.app.ytPlayers[playerId];
 	
-	if(status){
+	// console.log('[ytPlayVideo] status: ' + status);
+	
+	if(player == null){
+		//...
+	}
+	else if(status){
 		wrapper.find('.control-button').fadeOut(800);
 		wrapper.find('.control-area').fadeOut(800);
 		wrapper.find('.thumbnail-container').fadeOut(400);
 		
 		wrapper.find('.yt-player-container').show();
 		player.playVideo();
+		player.addEventListener("onStateChange", hongi.app._ytStateChanged);
 	}
 	else if(wrapper.find('.thumbnail-container').length >= 1){
 		wrapper.find('.control-button').fadeIn(400);
@@ -472,7 +478,7 @@ proto.ytPlayVideo = function(status, wrapper, player){
 };
 proto._ytStateChanged = function(e){
 	if (e.data == YT.PlayerState.ENDED){
-		// console.log('[Application._ytStateChanged] YT.PlayerState.ENDED');
+		// console.log('[_ytStateChanged] YT.PlayerState.ENDED on player: ' + $(e.target.a).closest('.yt-video-player').attr('id'));
 		hongi.app.ytPlayVideo(false, $(e.target.a).closest('.yt-video-player'), e.target);
 	}
 };
@@ -481,7 +487,7 @@ proto._ytStateChanged = function(e){
 // #################################################### SHARE
 
 proto.share = function(data){
-	var snetwork, mode, url, title, description, w, h, top, left, winstatus, req;
+	var snetwork, mode, url, w, h, top, left, winstatus, req;
 	
 	mode = data.mode || 'video';
 	snetwork = data.snetwork.toLowerCase() || 'twitter';
