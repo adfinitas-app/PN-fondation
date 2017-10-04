@@ -518,7 +518,7 @@ proto.share = function(data){
 			// @see  https://louisem.com/3838/facebook-link-thumbnail-image-sizes
 			// @see  https://developers.facebook.com/blog/post/2017/06/27/API-Change-Log-Modifying-Link-Previews/
 		default:
-			req = 'http://www.facebook.com/sharer/sharer.php?s=100&p[url]='+encodeURIComponent(url);
+			req = 'https://www.facebook.com/dialog/feed?&app_id=627838717604263&display=popup&link='+encodeURIComponent(url);
 			break;
 	}
 	
