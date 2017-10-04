@@ -11,19 +11,19 @@ hongi.settings = {
 	videosData: {
 		webdoc: {
 			id: 'kwd-ga6g-HY',
-			preview: 'theme/mm/preview-webdoc.jpg'
+			preview: 'http://fondation.perce-neige.org/onatousunroleajouer/theme/mm/preview-webdoc.jpg'
 		},
 		teaserBS: {
 			id: 'KQjHpq8HVy0',
-			preview: 'theme/mm/preview-teaser-bs.jpg'
+			preview: 'http://fondation.perce-neige.org/onatousunroleajouer/theme/mm/preview-teaser-bs.jpg'
 		},
 		teaserActeurs: {
 			id: 'veZZXl0_5cQ',
-			preview: 'theme/mm/preview-teaser-acteurs.jpg'
+			preview: 'http://fondation.perce-neige.org/onatousunroleajouer/theme/mm/preview-teaser-acteurs.jpg'
 		},
 		teaserParents: {
 			id: 'v3TT-DZSnZk',
-			preview: 'theme/mm/preview-teaser-parents.jpg'
+			preview: 'http://fondation.perce-neige.org/onatousunroleajouer/theme/mm/preview-teaser-parents.jpg'
 		}
 	},
 	urls: {
