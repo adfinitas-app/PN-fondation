@@ -197,7 +197,7 @@ proto.setHeadlineVideoContent = function(videoId){
 	// set buttons states
 	$('[data-yt-target]').each(function(){
 		var mi = $(this);
-		if(mi.attr('data-yt-target') == playerId){
+		if(mi.attr('data-yt-target') == 'headlines1-yt-player'){
 			mi.toggleClass('active', mi.attr('data-yt-id') == videoId);
 		}
 	});
@@ -272,6 +272,12 @@ proto.setHeadlineTarget = function(isLargeStatus){
 	this.raceIsHeadlineTargetReady = true;
 	if(this.raceIsYTReady)
 		hongi.app.ytInitPlayer('headlines1-yt-player', 'teaserActeurs');
+	$('[data-yt-target]').each(function(){
+		var mi = $(this);
+		if(mi.attr('data-yt-target') == 'headlines1-yt-player'){
+			mi.toggleClass('active', mi.attr('data-yt-id') == 'teaserActeurs');
+		}
+	});
 };
 
 
@@ -424,7 +430,7 @@ proto.ytInitPlayer = function(playerId, videoId){
 		+ '</div>';
 	$(html).appendTo(wrapper);
 	wrapper.find('.thumbnail-container').css({
-		'background-image': 'url("' + wrapper.attr('data-thumbnail') + '")',
+		'background-image': 'url(' + wrapper.attr('data-thumbnail') + ')',
 		'background-size': 'cover'
 	});
 	
