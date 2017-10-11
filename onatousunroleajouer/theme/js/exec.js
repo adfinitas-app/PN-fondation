@@ -70,7 +70,7 @@ proto = hongi.Application.prototype;
 // #################################################### CORE
 
 proto.registerInteractions = function(){
-	
+
 	// initialize action buttons (track mouse position for rollover animation)
 	$(document).on('mouseenter mouseout click', '.action-button', function(e) {
 		var parentOffset = $(this).offset();
@@ -80,34 +80,34 @@ proto.registerInteractions = function(){
 		});
 		return true;
 	});
-	
+
 	// watch page breakpoint state changes
 	$(window).on('changed.zf.mediaquery', function(){
 		hongi.app.setHeadlineTarget(Foundation.MediaQuery.atLeast('large'));
 	});
-	
+
 	// equalizer resize
 	this.globalResizeTimeout_ID = null;
 	$(window).resize(function() {
 		if(hongi.app.globalResizeTimeout_ID != null)
 			window.clearTimeout(hongi.app.globalResizeTimeout_ID);
-		
+
 		hongi.app.globalResizeTimeout_ID = window.setTimeout(function() {
 			hongi.app.refreshEqualizers();
 		}, 200);
 	});
-	
+
 	// headlines menu navigation
 	$('#headlines-menu').find('.headline-card').each(function(index){
 		if( index >= 3)
 			return;
 		$(this).on('click', hongi.app.setHeadline.bind(hongi.app, index));
 	});
-	
+
 	// headlines 1 video playback
 	$(document).on('click', '[data-yt-target]', hongi.app.setHeadline1Video);
-	
-	
+
+
 	// share campaigns
 	$('.campaign-visual').each(function(){
 		$(this).on('click', '.icon-link', function(){
@@ -118,7 +118,7 @@ proto.registerInteractions = function(){
 			});
 		});
 	});
-	
+
 	// share video
 	$(document).on('click', '.track-link-video-share', function(){
 		/*
@@ -129,11 +129,15 @@ proto.registerInteractions = function(){
 			mode: 'video'
 		});
 	});
-	
+
 	this.setLink('.track-link-fb-profile', hongi.settings.urls.fb_profile, true);
-	this.setLink('.track-link-donate', hongi.settings.urls.donate, true);
-	
-	
+	if ('segment' in p && 'last_don' in p) {
+
+	}
+ 	else
+		this.setLink('.track-link-donate', hongi.settings.urls.donate, true);
+
+
 	// --- init display
 	this.setHeadline();
 	this.setHeadlineTarget(Foundation.MediaQuery.atLeast('large'));
@@ -145,16 +149,16 @@ proto.refreshEqualizers = function(){
 	else if(this.currentHeadline == 1){
 		new Foundation.Equalizer($('#equalizer-headlines-section-2')).applyHeight();
 	}
-	
+
 	if(Foundation.MediaQuery.atLeast('large')){
 		new Foundation.Equalizer($('#campaign')).applyHeight();
 	}
 };
 proto.setLink = function(selector, url, asblank){
 	asblank = asblank != false;
-	
+
 	var selected = $(selector);
-	
+
 	$(document).on('click', selector, function(e){
 		e.preventDefault();
 		if(asblank)
@@ -178,12 +182,12 @@ proto.setHeadline1Video = function(){
 };
 proto.setHeadlineVideoContent = function(videoId){
 	var wrapper, player;
-	
+
 	player = hongi.app.ytPlayers['headlines1-yt-player'];
 	wrapper = $('#headlines1-yt-player');
-	
+
 	// console.log('[setHeadline1Video] video: "' + videoId + '" in player: "headlines1-yt-player"');
-	
+
 	wrapper
 		.attr('data-current-video-id', videoId)
 		.attr('data-thumbnail', hongi.settings.videosData[videoId].preview)
@@ -195,7 +199,7 @@ proto.setHeadlineVideoContent = function(videoId){
 		videoId: hongi.settings.videosData[videoId].id
 	});
 	hongi.app.ytPlayVideo(true, wrapper);
-	
+
 	// set buttons states
 	$('[data-yt-target]').each(function(){
 		var mi = $(this);
@@ -206,7 +210,7 @@ proto.setHeadlineVideoContent = function(videoId){
 };
 proto.setHeadline = function(index){
 	// console.log('setHeadline', index);
-	
+
 	if(Foundation.MediaQuery.atLeast('large')){
 		if(index === this.currentHeadline)
 			return;
@@ -216,16 +220,16 @@ proto.setHeadline = function(index){
 			index = -1;
 		}
 	}
-	
+
 	if(this.currentHeadline == 0){
 		this.ytPlayVideo(false, $('#headlines1-yt-player'));
 	}
 	this.currentHeadline = index;
-	
+
 	$('#headline-content-indicator').find('.cell').each(function(cellIndex){
 		$(this).toggleClass('active', !isNaN(index) && cellIndex == index);
 	});
-	
+
 	$('#headlines-menu').find('.headline-card').each(function(cellIndex){
 		$(this).toggleClass('active', !isNaN(index) && cellIndex == index);
 		if(!isNaN(index) && cellIndex == index){
@@ -233,32 +237,32 @@ proto.setHeadline = function(index){
 				scrollTop: $(this).offset().top
 			}, 400);
 		}
-		
-		
+
+
 	});
-	
+
 	$('.headline-section')
 		.toggleClass('active', false)
 		.hide();
-	
+
 	$('#headline-content' + (index + 1))
 		.toggleClass('active', true)
 		.show();
-	
-	
+
+
 	hongi.app.refreshEqualizers();
 };
 proto.setHeadlineTarget = function(isLargeStatus){
 	var largeContainer;
-	
+
 	if(isLargeStatus === this.headlinesLargeStatus){
 		return;
 	}
 	this.headlinesLargeStatus = isLargeStatus;
-	
+
 	// console.log('[setHeadlineTarget] isLargeStatus: ' + isLargeStatus);
-	
-	
+
+
 	if(isLargeStatus){
 		largeContainer = $('#headlines-pages-large-container');
 		$('#headline-content1').detach().appendTo(largeContainer);
@@ -270,7 +274,7 @@ proto.setHeadlineTarget = function(isLargeStatus){
 		$('#headline-content2').detach().appendTo($('#container-headlines2'));
 		$('#headline-content3').detach().appendTo($('#container-headlines3'));
 	}
-	
+
 	this.raceIsHeadlineTargetReady = true;
 	if(this.raceIsYTReady)
 		hongi.app.ytInitPlayer('headlines1-yt-player', 'teaserActeurs');
@@ -287,10 +291,10 @@ proto.setHeadlineTarget = function(isLargeStatus){
 
 proto.splashScreenOpen = function(){
 	// console.info('[Application.splashScreenOpen]');
-	
+
 	var splashScreen = $('#page-splash-screen');
 	this.splashScreenTl = new TimelineLite();
-	
+
 	if(hongi.development || hongi.settings.splashScreenAllowSkip){
 		splashScreen.on('click', function(){
 			console.warn('[!] user skip splash screen');
@@ -298,7 +302,7 @@ proto.splashScreenOpen = function(){
 			hongi.app.splashScreenClose();
 		});
 	}
-	
+
 	// apparition timeline
 	this.splashScreenTl.add(
 		TweenLite.fromTo(
@@ -328,18 +332,18 @@ proto.splashScreenOpen = function(){
 			{ ease: Power0.easeNone, immediateRender: true, width: '100%' }
 		)
 	], '-=.5');
-	
+
 	// text dots animation -> ., .., ..., , ., etc.
 	this.splashScreen_animTextItvID = setInterval(this.splashScreenAnimTextTicker, 270);
-	
+
 	// site opening timeout
 	this.splashScreen_animTextTmoutID = setTimeout(this.splashScreenClose, hongi.settings.splashScreenDuration);
-	
+
 	// block page scroll
 	$('body').css({
 		overflow: 'hidden'
 	});
-	
+
 	if(hongi.settings.splashScreenForceSkip){
 		hongi.app.splashScreenTl.stop();
 		hongi.app.splashScreenClose();
@@ -347,22 +351,22 @@ proto.splashScreenOpen = function(){
 };
 proto.splashScreenClose = function(){
 	var splashScreen = $('#page-splash-screen');
-	
+
 	// console.info('[Application.splashScreenClose]');
-	
+
 	// release callbacks and listeners
 	splashScreen.off('click', hongi.app.splashScreenClose);
 	clearInterval(this.splashScreen_animTextItvID);
 	clearTimeout(this.splashScreen_animTextTmoutID);
-	
+
 	// release page scroll
 	$('body').css({ overflow: "auto" });
-	
+
 	// scroll to content
 	splashScreen.animate( { 'margin-top': '-100vh' }, 750, 'swing', function(){
 		splashScreen.remove();
 	});
-	
+
 	// schedule menu apparition
 	setTimeout(function(){
 		$('header').css({
@@ -377,9 +381,9 @@ proto.splashScreenAnimTextTicker = function(){
 		this.target = $('#splash-screen-animated-text');
 		this.targetText = this.target.text();
 	}
-	
+
 	this.target.html( this.targetText + this.suffixes[this.count] + '<span>' + this.suffixes[this.suffixes.length - 1 - this.count] + '</span>');
-	
+
 	++this.count;
 	this.count %= 4;
 };
@@ -389,12 +393,12 @@ proto.splashScreenAnimTextTicker = function(){
 
 proto.ytInit = function(apiReadyCallback){
 	var scriptTag, firstScriptTag;
-	
+
 	scriptTag = document.createElement('script');
 	scriptTag.src = 'https://www.youtube.com/iframe_api';
 	firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-	
+
 	if(apiReadyCallback != null)
 		onYouTubeIframeAPIReady = apiReadyCallback;
 };
@@ -406,9 +410,9 @@ proto.ytOnAPIReady = function(){
 };
 proto.ytInitPlayer = function(playerId, videoId){
 	var wrapper, player, html;
-	
+
 	wrapper = $('#' + playerId);
-	
+
 	// store new settings
 	if(videoId == null)
 		videoId = wrapper.attr('data-yt-id');
@@ -417,8 +421,8 @@ proto.ytInitPlayer = function(playerId, videoId){
 		wrapper.attr('data-thumbnail', hongi.settings.videosData[videoId].preview);
 	}
 	wrapper.attr('data-current-video-id', videoId);
-	
-	
+
+
 	// reset wrapper content
 	wrapper.empty();
 	html = '';
@@ -435,9 +439,9 @@ proto.ytInitPlayer = function(playerId, videoId){
 		'background-image': 'url(' + wrapper.attr('data-thumbnail') + ')',
 		'background-size': 'cover'
 	});
-	
-	
-	
+
+
+
 	player = new YT.Player(wrapper.find('.yt-player-placeholder').attr('id'), {
 		height: '100%',
 		width: '100%',
@@ -452,7 +456,7 @@ proto.ytInitPlayer = function(playerId, videoId){
 		}
 	});
 	hongi.app.ytPlayers[playerId] = player;
-	
+
 	$(document).on('click', '.yt-video-player .control-area', function(){
 		hongi.app.ytPlayVideo(true, $(this).closest('.yt-video-player'));
 	});
@@ -460,9 +464,9 @@ proto.ytInitPlayer = function(playerId, videoId){
 proto.ytPlayVideo = function(status, wrapper){
 	var playerId = wrapper.closest('.yt-video-player').attr('id');
 	var player = hongi.app.ytPlayers[playerId];
-	
+
 	// console.log('[ytPlayVideo] status: ' + status);
-	
+
 	if(player == null){
 		//...
 	}
@@ -470,7 +474,7 @@ proto.ytPlayVideo = function(status, wrapper){
 		wrapper.find('.control-button').fadeOut(800);
 		wrapper.find('.control-area').fadeOut(800);
 		wrapper.find('.thumbnail-container').fadeOut(400);
-		
+
 		wrapper.find('.yt-player-container').show();
 		player.playVideo();
 		player.addEventListener("onStateChange", hongi.app._ytStateChanged);
@@ -479,7 +483,7 @@ proto.ytPlayVideo = function(status, wrapper){
 		wrapper.find('.control-button').fadeIn(400);
 		wrapper.find('.control-area').fadeIn(400);
 		wrapper.find('.thumbnail-container').fadeIn(400);
-		
+
 		wrapper.find('.yt-player-container').hide();
 		player.pauseVideo();
 	}
@@ -496,13 +500,13 @@ proto._ytStateChanged = function(e){
 
 proto.share = function(data){
 	var snetwork, mode, url, w, h, top, left, winstatus, req;
-	
+
 	mode = data.mode || 'video';
 	snetwork = data.snetwork.toLowerCase() || 'twitter';
 	url = hongi.settings.urls[snetwork][mode];
-	
+
 	switch(snetwork){
-		
+
 		case 'twitter':
 			// @see  https://dev.twitter.com/web/tweet-button
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/markup
@@ -510,7 +514,7 @@ proto.share = function(data){
 			// @see  https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/player-card
 			req = "http://twitter.com/share?text=" + encodeURIComponent(hongi.settings.twitterTexts[mode]) + "&url=" + encodeURIComponent(url);
 			break;
-		
+
 		case 'facebook':
 		// @see  "Open Graph protocol" http://ogp.me/
 			// @see  https://developers.facebook.com/docs/sharing/webmasters
@@ -522,13 +526,13 @@ proto.share = function(data){
 			req = 'https://www.facebook.com/dialog/feed?&app_id=627838717604263&display=popup&link='+encodeURIComponent(url);
 			break;
 	}
-	
+
 	w = 600;
 	h = 450;
 	left = (window.screenX || window.screenLeft || 0) + parseInt((window.innerWidth - w) * .5);
 	top = (window.screenY || window.screenTop || 0) + parseInt((window.innerHeight - h) * .5);
 	winstatus = "status=1,width=" + w + ",height=" + h + ",left=" + left + ",top=" + top;
-	
+
 	window.open(req, 'share-' + snetwork, winstatus);
 };
 
@@ -558,16 +562,16 @@ window.onbeforeunload = function(){
 
 $(document).ready(function(){
 	var app;
-	
+
 	// console.log('perce-neige 2017 - hongi.io');
-	
+
 	$(document).foundation();
-	
+
 	if(!hongi.app)
 		app = hongi.app = new hongi.Application();
 	app.ytInit(hongi.app.ytOnAPIReady.bind(hongi.app));
 	app.registerInteractions();
 	app.splashScreenOpen();
-	
-	
+
+
 });
