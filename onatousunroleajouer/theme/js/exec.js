@@ -131,11 +131,7 @@ proto.registerInteractions = function(){
 	});
 
 	this.setLink('.track-link-fb-profile', hongi.settings.urls.fb_profile, true);
-	if ('segment' in p && 'last_don' in p) {
-
-	}
- 	else
-		this.setLink('.track-link-donate', hongi.settings.urls.donate, true);
+	// this.setLink('.track-link-donate', hongi.settings.urls.donate, true);
 
 
 	// --- init display
