@@ -107,17 +107,6 @@
 	<script src="/onatousunroleajouer/assets/grille-gridtools.js"></script>
 	<script src="/onatousunroleajouer/assets/data-cta.js"></script>
 	<script src="/onatousunroleajouer/assets/grilledyn-cta.js"></script>
-	<script type="text/javascript">
-	function getParameterByName(name) {
-	  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-	  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-	  results = regex.exec(location.search);
-	  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-	}
-	(function() {
-	  window.onload = loadJQuery('cta', true, parseInt(getParameterByName("last_don")), getParameterByName("segment"));
-	})();
-	    </script>
 </head>
 <body>
 
