@@ -46,11 +46,18 @@
 }
 
 .container-fixed {
-	background-color: white;
-	position: fixed;
-	width: 100%;
-	z-index: 9999;
+    position: fixed;
+    /*background: white;*/
+    width: 100%;
+    z-index: 9999;
+    background: linear-gradient(
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    padding-bottom: 30px;
 }
+
 .header {
 	padding: 5px;
 	text-align: center;
@@ -95,16 +102,24 @@
 }
 .btn-header {
 	margin-top: 10px;
+        background-color: #f37923;
+        color: white;
+        border-radius: 0;
 }
+
+.header a p {
+    color: #58585a;
+}
+
 .slide-un {
-	background-image: url('https://s3.amazonaws.com/heroku-adfinitas-campaign/Perce-neige-2017/ISF/bg-header.jpg');
+	background-image: url('../img/header.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 41% 20%;
 	min-height: 100vh;
 }
 .container-slide-un {
-	padding-top: 35%;
+	padding-top: 25%;
 	text-align: center;
 	vertical-align: bottom;
 }
@@ -119,12 +134,51 @@
 .container-slide-un p.deduc {
 	font-size: 18px;
 }
-.container-slide-un h1 {
+.slide-un h1,
+.slide-un h2 {
 	color: white;
 	font-family: 'Titillium SemiBold';
 	font-size: 45px;
 	line-height: 1.1;
 }
+.slide-un h2 {
+	font-size: 25px;
+}
+
+.container-slide-un h1 {
+    text-shadow: 0px 0px 20px #000000;
+}
+
+.slide-un .green-line {
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(102, 178, 47, 0.9);
+}
+
+.slide-un .green-line h1 {
+    font-size: 24px;
+}
+
+.deux h2,
+.deux h3 {
+    color: white;
+}
+
+.deux h2,
+.deux h3 {
+    font-size: 30px;
+    font-family: 'Museo sans';
+    line-height: 1;
+}
+
+.deux h2 {
+    font-weight: bold;
+}
+
 .btn-slide-un {
 	border: 3px solid white;
 	color: white;
@@ -167,8 +221,9 @@
 	line-height: 1.2;
 }
 .deux.right {
-	padding-top: 30px;
+	padding-top: 80px;
 	padding-left: 5%;
+        color: #364451;
 }
 .deux.right h2 {
 	color: #364451;
@@ -184,14 +239,26 @@
 	font-size: 16px;
 }
 .deux.right a p {
+    margin-top: 10px;
+}
+.deux.right a p {
 	color: #72a3cb;
 	font-family: 'Museo Sans';
-	font-weight: bold;
+	font-weight: 900;
 	line-height: 1.2;
 	text-transform: uppercase;
 	display: inline-block;
 	font-size: 18px;
 	margin-bottom: 0;
+        text-align: right;
+        margin-right: 10px;
+        position: relative;
+        top: 10px;
+}
+
+.deux.right li {
+    font-size: 19px;
+    margin-bottom: 15px;
 }
 
 .slide-trois {
@@ -202,16 +269,32 @@
 	padding-right: 10px;
 	background-color: #f37923;
 }
+.slide-trois h2 {
+    color: white;
+    font-family: 'Museo sans';
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
 .slide-trois p {
-	display: inline-block;
-	font-family: 'Museo Sans';
-	font-weight: bold;
+	font-family: 'Museo Sans 100';
+        font-weight: 100;
 	line-height: 1.2;
-	text-transform: uppercase;
+        font-size: 20px;
 	color: white;
-	margin-bottom: 0;
+	margin-bottom: 5px;
 	vertical-align: middle;
 	text-align: left;
+}
+.slide-trois .don-info {
+    margin-top: 30px;
+    text-align: left;
+}
+.slide-trois .don-info p {
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: 'Museo Sans';
+    display: inline-block;
 }
 .slide-quatre {
 	padding: 60px;
@@ -284,7 +367,7 @@
 .text-don {
 	margin-top: 40px;
 	padding-top: 15px;
-	border-top: 2px solid #364451;
+	border: 2px solid #364451;
 }
 .text-don p {
 	font-family: 'Museo Sans 100';
