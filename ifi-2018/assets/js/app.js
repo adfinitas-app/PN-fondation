@@ -1,6 +1,5 @@
 $(document).foundation();
 
-
 $(document).ready( function() {
     var inst = $('[data-remodal-id=fondation]').remodal();
 
@@ -39,14 +38,28 @@ $(document).ready( function() {
 		scrollToDown($('#link-2'));
 	});
 
+
+    var os = new OnScreen({
+        debounce: 0
+    });
+    function toggleClassOnScreen(elSelector, className) {
+        os.on('enter', elSelector, function(el) {
+            $(el).addClass(className)
+        })
+        os.on('leave', elSelector, function(el) {
+            $(el).removeClass(className)
+        })
+    }
+
+    toggleClassOnScreen('.green-line', 'animated pulse')
+    toggleClassOnScreen('.reveal-animation', 'show')
+    toggleClassOnScreen('.text-don-1', 'animated fadeInLeft')
+    toggleClassOnScreen('.text-don-2', 'animated fadeInRight')
+    toggleClassOnScreen('.don-info', 'animated flipInX')
+    toggleClassOnScreen('.arrow.down', 'animated rubberBand')
 });
-$(window).resize( function() {
 
-
-});
-
-
-function    scrollToDown(next){
+function scrollToDown(next){
 	if ($(next).length != 0)
 	{
 		$('html, body').stop().animate({
@@ -56,8 +69,7 @@ function    scrollToDown(next){
 	}
 };
 
-
-function    scrollTo(next){
+function scrollTo(next){
 	if ($(next).length != 0)
 	{
 		$('html, body').stop().animate({

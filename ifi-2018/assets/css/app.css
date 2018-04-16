@@ -111,15 +111,22 @@
     color: #58585a;
 }
 
+.row-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .slide-un {
 	background-image: url('../img/header.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 41% 20%;
 	min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
 }
 .container-slide-un {
-	padding-top: 25%;
 	text-align: center;
 	vertical-align: bottom;
 }
@@ -145,7 +152,8 @@
 	font-size: 25px;
 }
 
-.container-slide-un h1 {
+.container-slide-un h1,
+.container-slide-un h2 {
     text-shadow: 0px 0px 20px #000000;
 }
 
@@ -220,8 +228,12 @@
 	font-weight: bold;
 	line-height: 1.2;
 }
+.deux.left img {
+        height: 100px;
+        width: 110px;
+}
 .deux.right {
-	padding-top: 80px;
+    padding-top: 10px;
 	padding-left: 5%;
         color: #364451;
 }
@@ -239,9 +251,6 @@
 	font-size: 16px;
 }
 .deux.right a p {
-    margin-top: 10px;
-}
-.deux.right a p {
 	color: #72a3cb;
 	font-family: 'Museo Sans';
 	font-weight: 900;
@@ -252,8 +261,6 @@
 	margin-bottom: 0;
         text-align: right;
         margin-right: 10px;
-        position: relative;
-        top: 10px;
 }
 
 .deux.right li {
@@ -303,6 +310,8 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 50% 100%;
+        position: relative;
+        overflow: hidden;
 }
 .slide-quatre .container-text h3 {
 	font-family: 'Museo Sans';
@@ -366,7 +375,8 @@
 }
 .text-don {
 	margin-top: 40px;
-	padding-top: 15px;
+	padding-top: 50px;
+	padding-bottom: 30px;
 	border: 2px solid #364451;
 }
 .text-don p {
@@ -383,7 +393,7 @@
 	line-height: 1;
 }
 .ou {
-	margin-top: 30px;
+	margin-top: 110px;
 }
 .ou p {
 	font-family: 'Museo Sans';
@@ -407,7 +417,8 @@
 }
 
 .slide-cinq {
-	padding: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 	border-top: 8px solid #f37923;
 	border-bottom: 8px solid #f37923;
 	text-align: center;
@@ -416,6 +427,7 @@
 	line-height: 1.2;
 	font-family: 'Museo Sans';
 	font-weight: bold;
+        font-size: 30px;
 	color: #364451;
 }
 .hidden {
@@ -438,7 +450,7 @@
 .container-hidden {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 600px;
+	max-width: 700px;
 	padding-top: 50px;
 	padding-bottom: 30px;
 }
@@ -455,6 +467,27 @@
 .arrow.down:hover {
     cursor: pointer;
 }
+.bareme {
+    color: #f37923;
+    font-family: 'Titillium SemiBold';
+    text-align: left;
+}
+.bareme h5 {
+    text-transform: uppercase;
+    font-family: 'Titillium SemiBold';
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.bareme p {
+    font-family: 'Titillium Light';
+    font-size: 22px;
+}
+
+.bareme .row .columns:first-child {
+    border-right: 2px solid #cccccc;
+}
+
 footer {
 	padding: 10px;
 	padding-top: 40px;
@@ -490,14 +523,40 @@ footer  .block-footer {
 footer  .block-footer:nth-child(1) {
 	padding-top: 0px;
 }
+footer .block-footer .bigger {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
 footer .savoir-plus p {
 	color: #7a7a7a;
-	text-transform: uppercase;
-	font-family: 'Titillium SemiBold';
+	/*text-transform: uppercase;*/
+	/*font-family: 'Titillium SemiBold';*/
 	font-size: 15px;
 	margin-bottom: 3px;
 	line-height: 1;
 }
+footer .nous-contacter {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer .nous-contacter h6 {
+    font-size: 25px;
+}
+
+footer .nous-contacter a {
+    color: #797979;
+    font-size: 13px;
+}
+
+footer .ressource {
+    padding-top: 40px;
+}
+
+footer .la-fondation {
+    margin-bottom: 100px;
+}
+
 @media screen and (max-width: 640px) {
 	.container-slide-un {
 		padding-top: 45%;
@@ -525,6 +584,120 @@ footer .savoir-plus p {
 	.btn.btn-header {
 		font-size: 13px;
 	}
+        footer .block-footer.transparence {
+            padding-top: 40px;
+        }
+        footer .la-fondation {
+            margin-bottom: 0;
+        }
+        .slide-un .green-line h1 {
+            font-size: 18px;
+        }
+        .container-slide-un h1 {
+            font-size: 25px;
+        }
+        .container-slide-un h2 {
+            font-size: 20px;
+        }
+        .slide-trois .don-info {
+            text-align: center;
+        }
+        .slide-trois .don-info img {
+            padding-bottom: 20px;
+        }
+        .deux h2,
+        .deux h3 {
+            font-size: 20px;
+        }
+        .bareme p {
+            font-size: 18px;
+            height: 60px;
+        }
+        .bareme h5 {
+            height: 70px;
+        }
+        .deux.right a p {
+            font-size: 16px;
+        }
+        .deux.right a p br {
+            display: none;
+        }
 }
 
 
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.5, 1.2, 1.2);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+.reveal-animation {
+    opacity: 0;
+
+    transform: translateY(20px) scale(0.9);
+    -webkit-transform: translateY(20px) scale(0.9);
+
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s,
+    opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+
+    transition: transform 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s,
+    opacity 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+}
+
+.reveal-animation.show {
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    -webkit-transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.text-don,
+.don-info,
+.arrow.down {
+    visibility: hidden;
+}
+.text-don.animated,
+.don-info.animated,
+.arrow.down.animated {
+    visibility: visible;
+}
