@@ -585,83 +585,6 @@ footer .la-fondation {
     margin-bottom: 100px;
 }
 
-@media screen and (max-width: 640px) {
-	.btn-slide-un {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-	.deux.left {
-		padding: 5px;
-		padding-top: 15px;
-	}
-	.deux.left div {
-		max-width: 100%;
-	}
-	.slide-quatre {
-		padding: 20px;
-	}
-	.deux.right h2 {
-		font-size: 22px;
-	}
-        .remodal-wrapper {
-            padding: 0 !important;
-        }
-	.remodal {
-		padding: 0px !important;
-                padding-top: 30px !important;
-                margin-bottom: 0 !important;
-                height: 100%;
-	}
-        .video-container {
-            padding: 0;
-            height: 100%;
-        }
-	.btn.btn-header {
-		font-size: 13px;
-	}
-        footer .block-footer.transparence {
-            padding-top: 40px;
-        }
-        footer .la-fondation {
-            margin-bottom: 0;
-        }
-        .green-line h1 {
-            font-size: 18px;
-        }
-        .container-slide-un h1 {
-            font-size: 25px;
-        }
-        .container-slide-un h2 {
-            font-size: 20px;
-        }
-        .slide-trois .don-info {
-            text-align: center;
-        }
-        .slide-trois .don-info img {
-            padding-bottom: 20px;
-        }
-        .deux h2,
-        .deux h3 {
-            font-size: 20px;
-        }
-        .bareme p {
-            font-size: 18px;
-            height: 60px;
-        }
-        .bareme h5 {
-            height: 70px;
-        }
-        .deux.right a p {
-            font-size: 16px;
-        }
-        .deux.right a p br {
-            display: none;
-        }
-        .ressource .block-footer .img-container {
-            text-align: center;
-        }
-}
-
 
 .animated {
   -webkit-animation-duration: 1s;
@@ -750,4 +673,95 @@ footer .la-fondation {
 
 .text-don:hover {
     transform: scale(1.1);
+}
+
+@media screen and (max-width: 640px) {
+	.btn-slide-un {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+	.deux.left {
+		padding: 5px;
+		padding-top: 15px;
+	}
+	.deux.left div {
+		max-width: 100%;
+	}
+	.slide-quatre {
+		padding: 20px;
+	}
+	.deux.right h2 {
+		font-size: 22px;
+	}
+        .remodal-wrapper {
+            padding: 0 !important;
+        }
+	.remodal {
+		padding: 0px !important;
+                padding-top: 30px !important;
+                margin-bottom: 0 !important;
+                height: 100%;
+	}
+        .video-container {
+            padding: 0;
+            height: 100%;
+        }
+	.btn.btn-header {
+		font-size: 13px;
+	}
+        footer .block-footer.transparence {
+            padding-top: 40px;
+        }
+        footer .la-fondation {
+            margin-bottom: 0;
+        }
+        .green-line h1 {
+            font-size: 18px;
+        }
+        .container-slide-un h1 {
+            font-size: 25px;
+        }
+        .container-slide-un h2 {
+            font-size: 20px;
+        }
+        .slide-trois .don-info {
+            text-align: center;
+        }
+        .slide-trois .don-info img {
+            padding-bottom: 20px;
+        }
+        .deux h2,
+        .deux h3 {
+            font-size: 20px;
+        }
+        .bareme p {
+            font-size: 18px;
+            height: 60px;
+        }
+        .bareme h5 {
+            height: 70px;
+        }
+        .deux.right a p {
+            font-size: 16px;
+        }
+        .deux.right a p br {
+            display: none;
+        }
+        .ressource .block-footer .img-container {
+            text-align: center;
+        }
+        .reveal-animation {
+            transform: none;
+            -webkit-transform: none;
+            transition: none;
+            opacity: 1;
+        }
+        .animated {
+            animation: none !important;
+        }
+        .text-don,
+        .don-info,
+        .arrow.down {
+            visibility: visible;
+        }
 }

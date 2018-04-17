@@ -52,7 +52,7 @@ $(document).ready( function() {
         })
     }
 
-    //toggleClassOnScreen('.green-line', 'animated pulse')
+    toggleClassOnScreen('.green-line', 'animated pulse')
     toggleClassOnScreen('.reveal-animation', 'show')
     toggleClassOnScreen('.text-don-1', 'animated fadeInLeft', function() {
         $('.text-don-1').removeClass('visible')
