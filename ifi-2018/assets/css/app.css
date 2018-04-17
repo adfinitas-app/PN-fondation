@@ -573,9 +573,6 @@ footer .la-fondation {
 }
 
 @media screen and (max-width: 640px) {
-	.container-slide-un {
-		padding-top: 45%;
-	}
 	.btn-slide-un {
 		padding-right: 20px;
 		padding-left: 20px;
@@ -646,6 +643,9 @@ footer .la-fondation {
         }
         .deux.right a p br {
             display: none;
+        }
+        .ressource .block-footer .img-container {
+            text-align: center;
         }
 }
 
