@@ -764,4 +764,13 @@ footer .la-fondation {
         .arrow.down {
             visibility: visible;
         }
+        .slide-un {
+            background-image: url('../img/header-mobile.jpg');
+        }
+        .container-slide-un {
+            padding-top: 180px;
+        }
+        .green-line {
+            bottom: 10px;
+        }
 }
