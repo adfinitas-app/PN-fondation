@@ -578,9 +578,19 @@ footer .la-fondation {
 	.deux.right h2 {
 		font-size: 22px;
 	}
+        .remodal-wrapper {
+            padding: 0 !important;
+        }
 	.remodal {
-		padding: 10px !important;
+		padding: 0px !important;
+                padding-top: 30px !important;
+                margin-bottom: 0 !important;
+                height: 100%;
 	}
+        .video-container {
+            padding: 0;
+            height: 100%;
+        }
 	.btn.btn-header {
 		font-size: 13px;
 	}
