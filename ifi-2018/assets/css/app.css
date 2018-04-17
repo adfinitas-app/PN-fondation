@@ -175,19 +175,28 @@
     text-shadow: 0px 0px 20px #000000;
 }
 
-.slide-un .green-line {
-    position: absolute;
-    bottom: 5%;
+.green-line {
+    /*position: absolute;*/
+    /*bottom: 5%;*/
     width: 100%;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgba(102, 178, 47, 0.9);
-    left: 0;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Titillium SemiBold';
+    /*left: 0;*/
 }
 
-.slide-un .green-line h1 {
+.green-line h1 {
     font-size: 24px;
+    font-family: 'Titillium SemiBold';
+}
+
+.line-sticky {
+    position: fixed;
+    bottom: 40px;
 }
 
 .deux h2,
@@ -616,7 +625,7 @@ footer .la-fondation {
         footer .la-fondation {
             margin-bottom: 0;
         }
-        .slide-un .green-line h1 {
+        .green-line h1 {
             font-size: 18px;
         }
         .container-slide-un h1 {
