@@ -112,9 +112,22 @@
 }
 
 .row-flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
     display: flex;
     justify-content: center;
+    -ms-flex-pack: center;
     align-items: center;
+}
+
+.row-flex.slide-un {
+    flex-direction: column;
+}
+
+.row-flex .container {
+    width: 100%;
 }
 
 .slide-un {
@@ -122,6 +135,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 41% 20%;
+        height: 100vh;
 	min-height: 100vh;
         overflow-x: hidden;
         position: relative;
@@ -165,6 +179,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     background-color: rgba(102, 178, 47, 0.9);
+    left: 0;
 }
 
 .slide-un .green-line h1 {
