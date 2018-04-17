@@ -105,6 +105,10 @@
         background-color: #f37923;
         color: white;
         border-radius: 0;
+        transition: transform 0.2s ease-in-out;
+}
+.btn-header:hover {
+    transform: scale(1.1);
 }
 
 .header a p {
@@ -725,4 +729,16 @@ footer .la-fondation {
 .don-info.animated,
 .arrow.down.animated {
     visibility: visible;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.text-don {
+    transition: all 0.2s ease-in-out;
+}
+
+.text-don:hover {
+    transform: scale(1.1);
 }
