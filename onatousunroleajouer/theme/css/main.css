@@ -2,7 +2,7 @@
 	font-family: 'museo_sans700';
 	font-weight: normal;
 	font-style: normal;
-	src: url('museosans_700.woff2') format('woff2'), url('museosans_700.woff') format('woff');
+	src: url('../fonts/museosans_700.woff2') format('woff2'), url('../fonts/museosans_700.woff') format('woff');
 }
 
 @font-face {
@@ -10,7 +10,7 @@
     font-weight: normal;
     font-style: normal; 
 
-    src: url('museosans_500.woff2') format('woff2'), url('museosans_500.woff') format('woff');
+    src: url('../fonts/museosans_500.woff2') format('woff2'), url('../fonts/museosans_500.woff') format('woff');
 }
 
 @font-face {
@@ -18,7 +18,7 @@
     font-weight: normal;
     font-style: normal; 
 
-    src: url('museosans-300.woff2') format('woff2'), url('museosans-300.woff') format('woff');
+    src: url('../fonts/museosans-300.woff2') format('woff2'), url('../fonts/museosans-300.woff') format('woff');
 }
 
 @font-face {
@@ -26,7 +26,7 @@
     font-weight: normal;
     font-style: normal; 
 
-    src: url('museosans-100.woff2') format('woff2'), url('museosans-100.woff') format('woff');
+    src: url('../fonts/museosans-100.woff2') format('woff2'), url('../fonts/museosans-100.woff') format('woff');
 }
 
 /**
