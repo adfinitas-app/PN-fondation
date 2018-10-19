@@ -8,7 +8,7 @@ hongi.settings = {
 	splashScreenDuration: 4500,
 	splashScreenAllowSkip: false,
 	splashScreenForceSkip: false,
-	defaultVideoId: 'parents',
+	defaultVideoId: 'interviewPhotoshoot',
 	videosData: {
 		billboard: {
 			id: "Zw2xQNZk-eI",
@@ -33,12 +33,12 @@ hongi.settings = {
 	},
 	urls: {
 		facebook: {
-			campaign: "http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer18&utm_medium=twitter&utm_campaign=unroleajouer18",
-			video: "http://fondation.perce-neige.org/onatousunroleajouer?utm_source=PARTAGEFB_LP_unroleajouer18&utm_medium=facebook&utm_campaign=unroleajouer18"
+			campaign: "https://bit.ly/2Er01uk",
+			video: "https://bit.ly/2yKKmjn"
 		},
 		twitter: {
-			campaign: "http://fondation.perce-neige.org/onatousunroleajouer/campaign.html?utm_source=%20PARTAGETW_LP_unroleajouer18&utm_medium=twitter&utm_campaign=unroleajouer18",
-			video: "http://fondation.perce-neige.org/onatousunroleajouer?utm_source=%20PARTAGETW_LP_unroleajouer18&utm_medium=twitter&utm_campaign=unroleajouer18"
+			campaign: "https://bit.ly/2NQZly0",
+			video: "https://bit.ly/2CPbuCo"
 		},
 		fb_profile: "https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041882935",
 		donate: "https://donner.perce-neige.org/b?cid=46&lang=fr_FR"
@@ -342,7 +342,7 @@ proto.splashScreenOpen = function(){
 	// site opening timeout
 	this.splashScreen_animTextTmoutID = setTimeout(this.splashScreenClose, hongi.settings.splashScreenDuration);
 	
-	// block page scroll
+	// block page scroll 
 	// /*
 	$('body').css({
 		overflow: 'hidden'
@@ -363,23 +363,20 @@ proto.splashScreenClose = function(){
 	clearTimeout(this.splashScreen_animTextTmoutID);
 	
 	// release page scroll
-	// /*
 	$('body').css({
 		overflow: "auto"
 	});
-	//*/
 	
 	// scroll to content
 	splashScreen.animate( { 'margin-top': '-100vh' }, 750, 'swing', function(){
-		// splashScreen.remove();
+		splashScreen.remove();
 	});
 	
 	// schedule menu apparition
 	setTimeout(function(){
-		$('header').css({
-			transform: 'translateX(0)'
+		$('body').addClass('menu-social--opened');
+		hongi.app.ytPlayVideo(true, $('#campaign-yt-player'));
 		}, 1000);
-	});
 };
 proto.splashScreenAnimTextTicker = function(){
 	if(isNaN(this.count)){
