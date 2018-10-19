@@ -10,25 +10,25 @@ hongi.settings = {
 	splashScreenForceSkip: false,
 	defaultVideoId: 'interviewPhotoshoot',
 	videosData: {
-		billboard: {
+		billboard: { 
 			id: "Zw2xQNZk-eI",
-			preview: "theme/mm/video-preview-billboard.jpg"
+			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-billboard.jpg"
 		},
 		parents: {
 			id: "v3TT-DZSnZk",
-			preview: "theme/mm/video-preview-parents.jpg"
+			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-parents.jpg"
 		},
 		interviewPhotoshoot: {
 			id: "X0hBab9ikbg",
-			preview: "theme/mm/video-preview-interviewPhotoshoot.jpg"
+			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-interviewPhotoshoot.jpg"
 		},
 		interviewRegard: {
 			id: "Qpx_dkGfM00",
-			preview: "theme/mm/video-preview-interviewRegard.jpg"
+			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-interviewRegard.jpg"
 		},
 		makingOf: {
 			id: "Zw2xQNZk-eI",
-			preview: "theme/mm/video-preview-makingOf.jpg"
+			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-makingOf.jpg"
 		}
 	},
 	urls: {
