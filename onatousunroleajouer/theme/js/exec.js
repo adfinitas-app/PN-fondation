@@ -10,7 +10,7 @@ hongi.settings = {
 	splashScreenForceSkip: false,
 	defaultVideoId: 'interviewPhotoshoot',
 	videosData: {
-		billboard: { 
+		billboard: {
 			id: "Zw2xQNZk-eI",
 			preview: "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/video-preview-billboard.jpg"
 		},
