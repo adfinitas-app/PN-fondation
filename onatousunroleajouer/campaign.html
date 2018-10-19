@@ -143,11 +143,11 @@
 
 <div id="page-splash-screen">
 	<div class="cell cell-spacer">&nbsp;</div>
-
+ 
 <div id="splash-screen-logo" class="cell">
 	<img alt="Perce Neige" src="https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/logo-perce-neige-header.png" />
 </div>
-
+ 
 <div class="cell cell-spacer">&nbsp;</div>
 
 <div id="splash-screen-title" class="cell">
@@ -162,10 +162,10 @@
 		<img src="https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/splash-screen-chair-alt.png" alt="" />
 	</div>
 	<div class="hide-for-small-only">
-		<video width="120" height="96" preload="auto" autoplay style="border: none; background-color: white;" >
-			<source id="chair-video" src="" type="video/mp4" />
+		<video width="120" height="96" preload="auto" autoplay="true" style="border: none; background-color: white;" >
+			<source id="chair-video-ld" src="" type="video/mp4" />
 			<script>
-				document.getElementById('chair-video').src = 'https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/splash-screen-chair.mp4?fdl=' + Date.now();
+				document.getElementById("chair-video-ld").src = "https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/splash-screen-chair.mp4?fdl=" + Date.now();
 			</script>
 			<img src="https://fondation.perce-neige.org/onatousunroleajouer/theme/mm/splash-screen-chair-alt.png" alt="" />
 		</video>
@@ -381,9 +381,9 @@
 		
 		<!-- ################################################# CELL 1 -->
 		<div class="large-3 cell headline-card vertical-centered-container">
-			
+			 
 			<div class="vertical-centered">
-				<h3>Qui sommes <br />nous ?</h3>
+				<h3>Qui sommes <br /> nous ?</h3>
 				<p>Découvrez la Fondation<br />Perce-Neige.</p>
 			</div>
 			
@@ -928,6 +928,9 @@
 			<a href="mailto:bienfaiteurs@perce-neige.org" target="_blank" class="align-right">
 				Nous contacter
 			</a>
+			<span class="align-right">
+				Réalisation&nbsp;<a href="https://www.adfinitas.fr" target="_blank">Adfinitas</a>&nbsp;&amp;&nbsp;<a href="https://www.vuxe.fr" target="_blank">Vuxe</a>
+			</span>
 		</div>
 	</div>
 </footer>

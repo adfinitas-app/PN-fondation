@@ -304,7 +304,7 @@ proto.splashScreenOpen = function(){
 			hongi.app.splashScreenTl.stop();
 			hongi.app.splashScreenClose();
 		});
-	}
+	} 
 	
 	// apparition timeline
 	this.splashScreenTl.add(
@@ -325,7 +325,7 @@ proto.splashScreenOpen = function(){
 		TweenLite.fromTo(
 			document.getElementById('splash-screen-chair'),
 			1,
-			{ opacity: 0 },
+			{ opacity: 1 },
 			{ immediateRender: true, opacity: 1 }
 		),
 		TweenLite.fromTo(
@@ -343,11 +343,9 @@ proto.splashScreenOpen = function(){
 	this.splashScreen_animTextTmoutID = setTimeout(this.splashScreenClose, hongi.settings.splashScreenDuration);
 	
 	// block page scroll
-	// /*
 	$('body').css({
 		overflow: 'hidden'
 	});
-	//*/
 	
 	if(hongi.settings.splashScreenForceSkip){
 		hongi.app.splashScreenTl.stop();
