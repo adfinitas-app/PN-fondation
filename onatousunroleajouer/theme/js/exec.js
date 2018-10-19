@@ -335,14 +335,14 @@ proto.splashScreenOpen = function(){
 			{ ease: Power0.easeNone, immediateRender: true, width: '100%' }
 		)
 	], '-=.5');
-	
+	   
 	// text dots animation -> ., .., ..., , ., etc.
 	this.splashScreen_animTextItvID = setInterval(this.splashScreenAnimTextTicker, 270);
 	 
 	// site opening timeout
 	this.splashScreen_animTextTmoutID = setTimeout(this.splashScreenClose, hongi.settings.splashScreenDuration);
 	
-	// block page scroll 
+	// block page scroll
 	// /*
 	$('body').css({
 		overflow: 'hidden'

@@ -2753,6 +2753,8 @@ ul.no-indent {
 #deductions-impots {
 	font-family: 'museo_sans300', Arial, Sans-Serif;
 	font-size: 19px;
+	font-size: 18px;
+	line-height: 110%;
 	position: relative;
 	display: block;
 	width: 100%;
@@ -3027,7 +3029,7 @@ body.menu-social--opened header {
 }
 
 #page-headlines .text-block h4 {
-	margin-bottom: .88rem;
+	margin: 0 0 12px 0;
 }
 
 #page-headlines .text-block blockquote {
