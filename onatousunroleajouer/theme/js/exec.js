@@ -304,7 +304,7 @@ proto.splashScreenOpen = function(){
 			hongi.app.splashScreenTl.stop();
 			hongi.app.splashScreenClose();
 		});
-	} 
+	}
 	
 	// apparition timeline
 	this.splashScreenTl.add(
