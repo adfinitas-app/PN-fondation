@@ -305,7 +305,7 @@ proto.splashScreenOpen = function(){
 			hongi.app.splashScreenClose();
 		});
 	}
-	
+	 
 	// apparition timeline
 	this.splashScreenTl.add(
 		TweenLite.fromTo(

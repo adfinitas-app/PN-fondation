@@ -1473,7 +1473,8 @@ h1 {
   font-family: "museo_sans100", Arial, Sans-Serif;
   font-weight: normal;
   font-size: 3.05882rem;
-  color: #1c263f; }
+  color: #1c263f;
+  line-height: 130%; }
 
 h2 {
   font-size: 1.76471rem;
@@ -1497,7 +1498,8 @@ h4 {
   font-size: 1.17647rem;
   font-weight: normal;
   font-family: "museo_sans700", Arial, Sans-Serif;
-  margin-bottom: 0.47059rem; }
+  margin-bottom: 0.47059rem;
+  line-height: 110%; }
 
 h6 {
   font-family: "museo_sans300", Arial, Sans-Serif;
@@ -1942,7 +1944,7 @@ body.menu-social--opened header {
       float: left; }
     header .perce-neige-logo {
       text-align: right;
-      width: 130px; }
+      width: 110px; }
     header .social-links {
       padding: 20px 0 0 20px;
       text-align: left;
@@ -1950,12 +1952,12 @@ body.menu-social--opened header {
       header .social-links a.icon-link {
         float: left;
         margin: 0 14px 0 0;
-        color: white; } }
+        color: white; }
+      header .social-links h6 {
+        margin: 1rem 0 .5rem 0; } }
   @media screen and (max-width: 39.9375em) and (max-width: 21.25em) {
     header .social-links a.icon-link {
-      margin: 0 6px 0 0; }
-    header .perce-neige-logo {
-      width: 110px; } }
+      margin: 0 6px 0 0; } }
 
 #page-splash-screen {
   position: relative;
@@ -2178,6 +2180,9 @@ body.menu-social--opened header {
     #page-headlines .share-block .icons-line span, #page-headlines .share-block .icons-line .icon-link {
       float: left;
       margin: 0 .58rem; }
+      @media screen and (max-width: 1100px) {
+        #page-headlines .share-block .icons-line span, #page-headlines .share-block .icons-line .icon-link {
+          margin: 0 .3rem; } }
 
 #page-headlines .share-block-small {
   margin-top: 30px;
@@ -2188,7 +2193,7 @@ body.menu-social--opened header {
     margin: .75rem 0; }
   #page-headlines .share-block-small .icon-link {
     float: left;
-    margin: 0 0 0 1.5rem;
+    margin: 0 0 0 .75rem;
     color: #74a5c8;
     background-color: white; }
     #page-headlines .share-block-small .icon-link:hover {
