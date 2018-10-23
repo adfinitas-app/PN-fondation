@@ -33,12 +33,12 @@ hongi.settings = {
 	},
 	urls: {
 		facebook: {
-			campaign: "https://bit.ly/2Er01uk",
-			video: "https://bit.ly/2yKKmjn"
+			campaign: "https://bit.ly/2pZOPL0",
+			video: "https://bit.ly/2AjJ15e"
 		},
 		twitter: {
-			campaign: "https://bit.ly/2NQZly0",
-			video: "https://bit.ly/2CPbuCo"
+			campaign: "https://bit.ly/2yoejGI",
+			video: "https://bit.ly/2CsPhcm"
 		},
 		fb_profile: "https://www.facebook.com/profilepicframes?query=fondation%20perce-neige&selected_overlay_id=485951041882935",
 		donate: "https://donner.perce-neige.org/b?cid=46&lang=fr_FR"
@@ -67,7 +67,7 @@ hongi.Application = function(){
 	this.headlinesLargeStatus = null;
 	this.raceIsYTReady = false;
 	this.raceIsHeadlineTargetReady = false;
-};
+}; 
 proto = hongi.Application.prototype;
 
 // #################################################### CORE
@@ -228,13 +228,15 @@ proto.setHeadline = function(index){
 	});
 	
 	$('#headlines-menu').find('.headline-card').each(function(cellIndex){
-		$(this).toggleClass('active', !isNaN(index) && cellIndex == index);
+		var self = $(this);
+		
+		self.toggleClass('active', !isNaN(index) && cellIndex == index);
 		if(!isNaN(index) && cellIndex == index){
-			$('html, body').animate({
-				scrollTop: $(this).offset().top
-			}, 400);
+			setTimeout(function(){
+				$(window).scrollTop(self.offset().top + 1);
+			}, 50);
 		}
-		$(this).find('.action-button').toggleClass('blue-out', index >= 0);
+		self.find('.action-button').toggleClass('blue-out', index >= 0);
 		
 		
 	});
