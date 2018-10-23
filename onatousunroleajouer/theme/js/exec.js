@@ -67,9 +67,9 @@ hongi.Application = function(){
 	this.headlinesLargeStatus = null;
 	this.raceIsYTReady = false;
 	this.raceIsHeadlineTargetReady = false;
-}; 
+};
 proto = hongi.Application.prototype;
-
+ 
 // #################################################### CORE
 
 proto.registerInteractions = function(){
@@ -232,9 +232,16 @@ proto.setHeadline = function(index){
 		
 		self.toggleClass('active', !isNaN(index) && cellIndex == index);
 		if(!isNaN(index) && cellIndex == index){
-			setTimeout(function(){
-				$(window).scrollTop(self.offset().top + 1);
-			}, 50);
+			if (Foundation.MediaQuery.is('small only')) {
+				setTimeout(function () {
+					$(window).scrollTop(self.offset().top + 1);
+				}, 25);
+			}
+			else{
+				$('html, body').animate({
+					scrollTop: self.offset().top
+				}, 400);
+			}
 		}
 		self.find('.action-button').toggleClass('blue-out', index >= 0);
 		
