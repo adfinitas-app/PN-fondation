@@ -100,15 +100,26 @@
 	text-transform: uppercase;
 	padding: 20px;
 }
+.header-btn-row > *.columns {
+    padding-left: 2px;
+    padding-right: 2px;
+}
 .btn-header {
 	margin-top: 10px;
         background-color: #f37923;
         color: white;
         border-radius: 0;
+        padding: 10px;
         transition: transform 0.2s ease-in-out;
+        width: 100%;
 }
 .btn-header:hover {
     transform: scale(1.1);
+}
+
+.btn-header.btn-ifi {
+        border-color: #5880AF;
+        background-color: #5880AF;
 }
 
 .header a p {
@@ -675,6 +686,12 @@ footer .la-fondation {
     transform: scale(1.1);
 }
 
+@media screen and (max-width: 1200px) {
+	.btn.btn-header {
+		font-size: 13px;
+	}
+}
+
 @media screen and (max-width: 640px) {
 	.btn-slide-un {
 		padding-right: 20px;
@@ -707,7 +724,7 @@ footer .la-fondation {
             height: 100%;
         }
 	.btn.btn-header {
-		font-size: 13px;
+		font-size: 11px;
 	}
         footer .block-footer.transparence {
             padding-top: 40px;
