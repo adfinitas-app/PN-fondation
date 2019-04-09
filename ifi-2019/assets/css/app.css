@@ -193,11 +193,15 @@
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgba(114, 163, 203, 0.9);
     color: white;
     text-transform: uppercase;
     font-family: 'Titillium SemiBold';
+    background-color: rgba(114, 163, 203, 1);
     /*left: 0;*/
+}
+
+.banner.line-sticky {
+    background-color: rgba(114, 163, 203, 0.9);
 }
 
 .banner h1 {
