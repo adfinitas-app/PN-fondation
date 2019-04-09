@@ -52,7 +52,7 @@ $(document).ready( function() {
         })
     }
 
-    toggleClassOnScreen('.green-line', 'animated pulse')
+    toggleClassOnScreen('.banner', 'animated pulse')
     toggleClassOnScreen('.reveal-animation', 'show')
     toggleClassOnScreen('.text-don-1', 'animated fadeInLeft', function() {
         $('.text-don-1').removeClass('visible')
@@ -69,16 +69,16 @@ $(document).ready( function() {
     toggleClassOnScreen('.don-info', 'animated flipInX')
     toggleClassOnScreen('.arrow.down', 'animated rubberBand')
 
-    var height = $('.green-line').outerHeight()
+    var height = $('.banner').outerHeight()
     $(window).scroll(function() {
-        var relativeY =  $(".slide-deux").offset().top - $(".green-line").offset().top;
+        var relativeY =  $(".slide-deux").offset().top - $(".banner").offset().top;
         var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        var elBottom = $('.green-line')[0].getBoundingClientRect().bottom;
+        var elBottom = $('.banner')[0].getBoundingClientRect().bottom;
         var fixTop = $('#link-1')[0].getBoundingClientRect().top;
         if (elBottom > vh) {
-            $('.green-line').addClass('line-sticky')
+            $('.banner').addClass('line-sticky')
         } else if (fixTop + height < vh) {
-                $('.green-line').removeClass('line-sticky')
+                $('.banner').removeClass('line-sticky')
         }
     })
 });
