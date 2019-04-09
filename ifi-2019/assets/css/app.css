@@ -118,8 +118,8 @@
 }
 
 .btn-header.btn-ifi {
-        border-color: #5880AF;
-        background-color: #5880AF;
+        border-color: #72a3cb;
+        background-color: #72a3cb;
 }
 
 .header a p {
@@ -186,21 +186,21 @@
     text-shadow: 0px 0px 20px #000000;
 }
 
-.green-line {
+.banner {
     /*position: absolute;*/
     /*bottom: 5%;*/
     width: 100%;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: rgba(102, 178, 47, 0.9);
+    background-color: rgba(114, 163, 203, 0.9);
     color: white;
     text-transform: uppercase;
     font-family: 'Titillium SemiBold';
     /*left: 0;*/
 }
 
-.green-line h1 {
+.banner h1 {
     font-size: 24px;
     font-family: 'Titillium SemiBold';
 }
@@ -309,8 +309,8 @@
 
 .slide-trois {
 	text-align: center;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 	padding-left: 10px;
 	padding-right: 10px;
 	background-color: #f37923;
@@ -428,8 +428,11 @@
 }
 .text-don p span {
 	text-transform: none;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1;
+
+	font-family: 'Museo Sans';
+	color: #364451;
 }
 .ou {
 	margin-top: 110px;
@@ -732,7 +735,7 @@ footer .la-fondation {
         footer .la-fondation {
             margin-bottom: 0;
         }
-        .green-line h1 {
+        .banner h1 {
             font-size: 18px;
         }
         .container-slide-un h1 {
@@ -787,7 +790,7 @@ footer .la-fondation {
         .container-slide-un {
             padding-top: 180px;
         }
-        .green-line {
+        .banner {
             bottom: 10px;
         }
 }
