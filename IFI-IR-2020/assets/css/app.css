@@ -92,7 +92,7 @@
 	-moz-transition: all .1s ease-in-out;
 	-o-transition: all .1s ease-in-out;
 	-ms-transition: all .1s ease-in-out;
-	border: 3px solid #f8c045;
+	border: 3px solid #f37923;
 	color: #f37923;
 	font-family: 'Museo Sans';
 	font-weight: bold;
@@ -282,7 +282,7 @@
         color: #364451;
 }
 .deux.right h2 {
-	color: #003399;
+	color: #364451;
 	font-family: 'Museo Sans';
 	font-weight: bold;
 	line-height: 1;
