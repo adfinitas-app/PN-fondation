@@ -92,8 +92,8 @@
 	-moz-transition: all .1s ease-in-out;
 	-o-transition: all .1s ease-in-out;
 	-ms-transition: all .1s ease-in-out;
-	border: 3px solid #f7b645;
-	color: #f7b645;
+	border: 3px solid #f37923;
+	color: #f37923;
 	font-family: 'Museo Sans';
 	font-weight: bold;
 	border-radius: 5px;
@@ -118,8 +118,8 @@
 }
 
 .btn-header.btn-ifi {
-        border-color: #f8c045;
-        background-color: #f8c045;
+        border-color: #709dbc;
+        background-color: #709dbc;
 }
 
 .header a p {
