@@ -106,7 +106,7 @@
 }
 .btn-header {
 	margin-top: 10px;
-        background-color: #f37923;
+        background-color: #f7b645;
         color: white;
         border-radius: 0;
         padding: 10px;
@@ -118,8 +118,8 @@
 }
 
 .btn-header.btn-ifi {
-        border-color: #7facd0;
-        background-color: #7facd0;
+        border-color: #f8c045;
+        background-color: #f8c045;
 }
 
 .header a p {
