@@ -92,8 +92,8 @@
 	-moz-transition: all .1s ease-in-out;
 	-o-transition: all .1s ease-in-out;
 	-ms-transition: all .1s ease-in-out;
-	border: 3px solid #f37923;
-	color: #f37923;
+	border: 3px solid #f7b645;
+	color: #f7b645;
 	font-family: 'Museo Sans';
 	font-weight: bold;
 	border-radius: 5px;
@@ -106,7 +106,7 @@
 }
 .btn-header {
 	margin-top: 10px;
-        background-color: #f7b645;
+        background-color: #f8c045;
         color: white;
         border-radius: 0;
         padding: 10px;
