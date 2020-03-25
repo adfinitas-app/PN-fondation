@@ -173,33 +173,33 @@
 .ensemble h1 {
 	color: #fefefe;
 	font-family: 'Titillium SemiBold';
-	font-size: 45px;
+	font-size: 40px;
 	line-height: 1.1;
-	text-align: right;
+	text-align: left;
 }
 
 .personnes h1 {
 	color: #f7b645;
 	font-family: 'Titillium SemiBold';
-	font-size: 45px;
+	font-size: 40px;
 	line-height: 1.1;
-	text-align: right;
+	text-align: left;
 }
 
 .votre h2 {
 	color: white;
 	font-family: 'Titillium SemiBold';
-	font-size: 45px;
+	font-size: 40px;
 	line-height: 1.1;
-	text-align: right;
+	text-align: left;
 }
 
 .pour h2 {
 	color: #f7b645;
 	font-family: 'Titillium SemiBold';
-	font-size: 45px;
+	font-size: 40px;
 	line-height: 1.1;
-	text-align: right;
+	text-align: left;
 }
 
 .slide-un h2 {
