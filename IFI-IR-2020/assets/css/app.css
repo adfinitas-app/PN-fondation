@@ -194,6 +194,14 @@
 	text-align: right;
 }
 
+.pour h2 {
+	color: #f7b645;
+	font-family: 'Titillium SemiBold';
+	font-size: 45px;
+	line-height: 1.1;
+	text-align: right;
+}
+
 .slide-un h2 {
 	font-size: 25px;
 }
