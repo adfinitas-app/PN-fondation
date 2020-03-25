@@ -145,12 +145,9 @@
     width: 100%;
 }
 
-.construisez{
-    background-color: #92956b;
-}
-
 .construisez p{
-    color: #efefef;
+    background-color: #92956b;
+     color: #efefef;
     text-align: center;
     font-size: 25px;
 }
