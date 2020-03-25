@@ -171,22 +171,22 @@
 	font-size: 18px;
 }
 .ensemble h1 {
-	color: #f8c045;
+	color: #fefefe;
 	font-family: 'Titillium SemiBold';
 	font-size: 45px;
 	line-height: 1.1;
 	text-align: right;
 }
 
-.slide-un h2 {
-	color: white;
+.personnes h1 {
+	color: #f7b645;
 	font-family: 'Titillium SemiBold';
 	font-size: 45px;
 	line-height: 1.1;
 	text-align: right;
 }
 
-.slide-un p {
+.votre h2 {
 	color: white;
 	font-family: 'Titillium SemiBold';
 	font-size: 45px;
