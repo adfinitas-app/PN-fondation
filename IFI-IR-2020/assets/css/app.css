@@ -186,6 +186,14 @@
 	text-align: right;
 }
 
+.slide-un p {
+	color: white;
+	font-family: 'Titillium SemiBold';
+	font-size: 45px;
+	line-height: 1.1;
+	text-align: right;
+}
+
 .slide-un h2 {
 	font-size: 25px;
 }
