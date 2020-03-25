@@ -175,7 +175,7 @@
 	font-family: 'Titillium SemiBold';
 	font-size: 40px;
 	line-height: 1.1;
-	text-align: left;
+	text-align: right;
 }
 
 .personnes h1 {
@@ -183,7 +183,7 @@
 	font-family: 'Titillium SemiBold';
 	font-size: 40px;
 	line-height: 1.1;
-	text-align: left;
+	text-align: right;
 }
 
 .votre h2 {
@@ -191,7 +191,7 @@
 	font-family: 'Titillium SemiBold';
 	font-size: 40px;
 	line-height: 1.1;
-	text-align: left;
+	text-align: right;
 }
 
 .pour h2 {
@@ -199,7 +199,7 @@
 	font-family: 'Titillium SemiBold';
 	font-size: 40px;
 	line-height: 1.1;
-	text-align: left;
+	text-align: right;
 }
 
 .slide-un h2 {
