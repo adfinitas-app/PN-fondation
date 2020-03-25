@@ -149,6 +149,12 @@
     background-color: #92956b;
 }
 
+.construisez p{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+}
+
 .slide-un {
 	background-image: url('../img/karine.jpg');
 	background-repeat: no-repeat;
