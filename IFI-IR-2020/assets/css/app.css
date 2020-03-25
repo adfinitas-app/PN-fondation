@@ -170,7 +170,14 @@
 .container-slide-un p.deduc {
 	font-size: 18px;
 }
-.slide-un h1,
+.slide-un h1 {
+	color: #f8c045;
+	font-family: 'Titillium SemiBold';
+	font-size: 45px;
+	line-height: 1.1;
+	text-align: right;
+}
+
 .slide-un h2 {
 	color: white;
 	font-family: 'Titillium SemiBold';
@@ -178,6 +185,7 @@
 	line-height: 1.1;
 	text-align: right;
 }
+
 .slide-un h2 {
 	font-size: 25px;
 }
