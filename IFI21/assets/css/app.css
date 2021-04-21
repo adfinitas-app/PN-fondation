@@ -51,7 +51,7 @@ html  {
 .text {
     font-family: 'Century Gothic', sans-serif;
     color: #575755;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .head-background {
@@ -294,7 +294,7 @@ html  {
 }
 
 .missions .mdv_row {
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .menu-items .mdv_row {
@@ -310,7 +310,7 @@ html  {
 .input-don-container {
     display: flex;
     width: 100%;
-    height: 60px;
+    height: 50px;
     color: white;
     background-color: #4281B8;
     border-radius: 6px;
@@ -337,6 +337,7 @@ html  {
     border: #4281B8 solid 3px;
     font-family: "Century Gothic", sans-serif;
     font-weight: bold;
+    height: 50px;
 }
 
 /* Chrome, Safari, Edge, Opera */
