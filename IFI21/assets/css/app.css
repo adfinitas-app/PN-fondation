@@ -182,7 +182,7 @@ html  {
 
 @media print, screen and (min-width: 800px) {
     .yellow-container {
-        padding: 3rem;
+        padding: 4rem;
     }
 
     .titlePart {
@@ -218,7 +218,7 @@ html  {
 
 @media print, screen and (min-width: 1200px) {
     .yellow-container {
-        padding: 3rem;
+        padding: 4rem;
     }
 
     .titlePart {
