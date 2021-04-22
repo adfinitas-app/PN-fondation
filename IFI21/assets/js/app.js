@@ -108,13 +108,18 @@ $(document).ready(function() {
 });
 
 const defisc = new Map();
+const links = new Map();
 let discount = 66;
 let amount = 0;
 
 defisc.set(66, ['Impôt sur le Revenu<span class="show-for-medium hide-br"><br>&nbsp;</span>', 'IR']);
 defisc.set(75, ['Impôt sur la Fortune Immobilière', 'IFI']);
 
+links.set(66, 'https://donner.perce-neige.org/b?cid=65');
+links.set(75, 'https://donner.perce-neige.org/b?cid=64');
+
 function changeDefisc(event, nb) {
+    let regex = /[^\d.]/g;
     $('.btn-ir-ifi').removeClass('selected-reduc');
     event.target.classList.add('selected-reduc');
 
@@ -124,9 +129,9 @@ function changeDefisc(event, nb) {
     $('#percentDefisc').text(nb);
 
     if (discount === 66) {
-        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=65')
+        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=65' + (value === '' ? '' : '&amount=') + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)
     } else {
-        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=64')
+        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=64' + (value === '' ? '' : '&amount=') + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)
     }
 
     onChange($('#calculatorInput').val());
@@ -163,6 +168,8 @@ function onChange(v) {
 
     $('#discountAmount').html(formatValue((amount * (discount / 100)).toFixed(2).toString()) + '&nbsp;€');
     $('#amountLeft').html(formatValue((amount * (1 - (discount / 100))).toFixed(2).toString()) + '&nbsp;€');
+    $('#donCalc').attr('href', links.get(discount) + (value === '' ? '' : '&amount=') + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)
+
 }
 
 function formatValue(value) {
