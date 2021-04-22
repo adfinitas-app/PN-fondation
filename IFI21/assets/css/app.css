@@ -54,12 +54,6 @@ html  {
     font-size: 18px;
 }
 
-.head-background {
-    background: linear-gradient(#F7C84712, #F7C84712), url('../img/header.png') no-repeat bottom center;
-    background-size: cover;
-    height: calc(100vh - 80px);
-}
-
 .calculator {
     border-radius: 6px;
     background-color: white;
@@ -143,6 +137,16 @@ html  {
         color: white;
         font-size: 24px;
     }
+
+    .head-background {
+        background: linear-gradient(#F7C84712, #F7C84712), url('../img/header_mobile.png') no-repeat bottom center;
+        background-size: cover;
+        height: calc(100vh - 80px);
+    }
+
+    .margin-small {
+        margin-top: 60px;
+    }
 }
 
 @media print, screen and (max-width: 400px) {
@@ -214,6 +218,12 @@ html  {
         color: white;
         font-size: 28px;
     }
+
+    .head-background {
+        background: linear-gradient(#F7C84712, #F7C84712), url('../img/header.png') no-repeat bottom center;
+        background-size: cover;
+        height: calc(100vh - 80px);
+    }
 }
 
 @media print, screen and (min-width: 1200px) {
@@ -249,6 +259,12 @@ html  {
     .box-defisc p {
         color: white;
         font-size: 28px;
+    }
+
+    .head-background {
+        background: linear-gradient(#F7C84712, #F7C84712), url('../img/header.png') no-repeat bottom center;
+        background-size: cover;
+        height: calc(100vh - 80px);
     }
 }
 
