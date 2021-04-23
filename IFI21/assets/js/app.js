@@ -119,6 +119,7 @@ links.set(66, 'https://donner.perce-neige.org/b?cid=65');
 links.set(75, 'https://donner.perce-neige.org/b?cid=64');
 
 function changeDefisc(event, nb) {
+    let value = $('#calculatorInput').val().toString()
     let regex = /[^\d.]/g;
     $('.btn-ir-ifi').removeClass('selected-reduc');
     event.target.classList.add('selected-reduc');
