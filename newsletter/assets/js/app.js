@@ -207,6 +207,12 @@ function submitForm(mode) {
       "ce_name": pureField($("input[name='firstname']").val()) + ' ' + pureField($("input[name='lastname']").val()),
       "ce_language": pureField($("input[name='language']").val())
     },
+    "qd2" : {
+      "email": pureField($("input[name='email']").val()),
+      "firstname": pureField($("input[name='firstname']").val()),
+      "lastname": pureField($("input[name='lastname']").val()),
+      "email": pureField($("input[name='email']").val())
+    },
     "mailjet": {
       "Email": pureField($("input[name='email']").val()),
       "Properties": {
