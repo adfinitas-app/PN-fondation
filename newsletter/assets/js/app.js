@@ -210,8 +210,7 @@ function submitForm(mode) {
     "qd2" : {
       "email": pureField($("input[name='email']").val()),
       "firstname": pureField($("input[name='firstname']").val()),
-      "lastname": pureField($("input[name='lastname']").val()),
-      "email": pureField($("input[name='email']").val())
+      "lastname": pureField($("input[name='lastname']").val())
     },
     "mailjet": {
       "Email": pureField($("input[name='email']").val()),
