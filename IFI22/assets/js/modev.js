@@ -1,5 +1,40 @@
 $(".hidden-at-loading").hide().removeClass("hidden-at-loading");
 
+(function transfertParams() {
+    let params = window.location.href.split('#')[0].split('?')[1]?.split('&');
+
+    if (!params) return;
+
+    let paramsToTransfert = [
+        'utm_source',
+        'utm_campaign',
+        'utm_medium',
+        'reserved_code_email',
+        'reserved_code_segment'
+    ];
+
+    let finalParams = "";
+
+    for (let param of params) {
+        if (paramsToTransfert.includes(param.split('=')[0])) {
+            finalParams += '&' + param;
+        }
+    }
+
+    $(".transfert-params").map((index, item) => {
+        let href = item.getAttribute("href");
+
+        if (!href.includes("?")) {
+            href += "?";
+            finalParams = finalParams.substring(1)
+        }
+
+        href += finalParams;
+
+        console.log(href);
+    })
+})();
+
 class mdv_RevealBox {
     constructor(htmlElement) {
         this.html = htmlElement;
