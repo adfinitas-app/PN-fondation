@@ -115,8 +115,8 @@ let amount = 0;
 defisc.set(66, ['Impôt sur le Revenu<span class="show-for-medium hide-br"><br>&nbsp;</span>', 'IR']);
 defisc.set(75, ['Impôt sur la Fortune Immobilière', 'IFI']);
 
-links.set(66, 'https://donner.perce-neige.org/b?cid=65');
-links.set(75, 'https://donner.perce-neige.org/b?cid=64');
+links.set(66, 'https://donner.perce-neige.org/b?cid=78');
+links.set(75, 'https://donner.perce-neige.org/b?cid=77');
 
 function changeDefisc(event, nb) {
     let value = $('#calculatorInput').val().toString()
