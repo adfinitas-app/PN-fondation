@@ -10,7 +10,8 @@ $(".hidden-at-loading").hide().removeClass("hidden-at-loading");
         'utm_campaign',
         'utm_medium',
         'reserved_code_email',
-        'reserved_code_segment'
+        'reserved_code_segment',
+        'reserved_code_media'
     ];
 
     let finalParams = "";
