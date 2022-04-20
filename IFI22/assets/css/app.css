@@ -103,6 +103,10 @@ html  {
     margin-top: 30px;
 }
 
+.titlePart {
+    font-size: 51px;
+}
+
 @media print, screen and (max-width: 799px) {
     .titlePart {
         font-size: 28px;
@@ -155,10 +159,6 @@ html  {
     }
 }
 
-
-/* truc degueu */
-
-
 @media print, screen and (min-width: 811px) and (max-width: 1180px) {
     .hide-br {
         display: none;
@@ -183,18 +183,17 @@ html  {
     }
 }
 
-
 @media print, screen and (min-width: 800px) {
     .yellow-container {
         padding: 4rem;
     }
 
-    .titlePart {
-        font-size: 51px;
-    }
-
     .row-padding {
         padding: 0 4rem;
+    }
+
+    .titlePart {
+        font-size: 39px;
     }
 
     .part-one-card {
@@ -223,6 +222,18 @@ html  {
         background: linear-gradient(#F7C84712, #F7C84712), url('../img/header.jpg') no-repeat bottom center;
         background-size: cover;
         height: calc(100vh - 80px);
+    }
+}
+
+@media print, screen and (min-width: 900px) {
+    .titlePart {
+        font-size: 43px;
+    }
+}
+
+@media print, screen and (min-width: 1000px) {
+    .titlePart {
+        font-size: 46px;
     }
 }
 
