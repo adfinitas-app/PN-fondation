@@ -129,10 +129,12 @@ function changeDefisc(event, nb) {
     $('#btnTextDefisc').text(defisc.get(nb)[1]);
     $('#percentDefisc').text(nb);
 
+    if (!value) value = '';
+
     if (discount === 66) {
-        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=65' + (value === '' ? '' : '&amount=') + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)
+        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=65' + (value === '' ? '' : ('&amount=' + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)))
     } else {
-        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=64' + (value === '' ? '' : '&amount=') + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)
+        $('#donCalc').attr('href', 'https://donner.perce-neige.org/b?cid=64' + (value === '' ? '' : ('&amount=' + parseFloat(value.replaceAll(regex, '')).toFixed(0) * 100)))
     }
 
     onChange($('#calculatorInput').val());
