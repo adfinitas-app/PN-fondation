@@ -32,7 +32,7 @@ $(".hidden-at-loading").hide().removeClass("hidden-at-loading");
 
         href += finalParams;
 
-        console.log(href);
+        item.setAttribute('href', href);
     })
 })();
 
